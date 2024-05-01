@@ -5,7 +5,11 @@ public class Login {
    String abdulaziz;
    int asdfaweragfsgfaggwaeda;
    String conflict;
-   String noConflict;
+
+   String noConfict;
+
+   int omar;
+
 
 }
 
