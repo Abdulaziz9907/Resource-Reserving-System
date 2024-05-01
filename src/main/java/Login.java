@@ -4,4 +4,5 @@ public class Login {
    String abdullaziz;
    String Seconndabdullaziz;
    int change;
+   int change2;
 }
