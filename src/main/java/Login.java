@@ -10,6 +10,7 @@ public class Login {
 
    int omar;
    int x;
+   String name;
 
 }
 
