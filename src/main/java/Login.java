@@ -9,7 +9,7 @@ public class Login {
    String noConfict;
 
    int omar;
-
+   int x;
 
 }
 
