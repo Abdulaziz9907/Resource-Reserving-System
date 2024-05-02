@@ -113,10 +113,6 @@ public class DB {
             preparedStatement=connection.prepareStatement("SELECT password, gender")
 
 
-
-
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
