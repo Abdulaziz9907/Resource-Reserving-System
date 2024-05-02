@@ -11,24 +11,24 @@ import java.sql.*;
 
 public class DB {
 
-    public static void changeScene(ActionEvent event,String fxmlFile, String title, String username ,String gender, String role ){
+    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String gender, String role) {
 
         Parent root = null;
 
-       try{
-           root = FXMLLoader.load(DB.class.getResource(fxmlFile));
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+        try {
+            root = FXMLLoader.load(DB.class.getResource(fxmlFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    Stage stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setTitle(title);
-    stage.setScene(new Scene(root,600,400));
-    stage.show();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
 
     }
 
-    public static void signUp(ActionEvent event, String username, String password,String gender, String role) {
+    public static void signUp(ActionEvent event, String username, String password, String gender, String role) {
 
         Connection connection = null;
         PreparedStatement psInsert = null;
@@ -102,21 +102,78 @@ public class DB {
 
     }
 
-    public static void logIn(ActionEvent event, String username, String password){
+    public static void logIn(ActionEvent event, String username, String password) {
 
-        Connection connection=null;
-        PreparedStatement preparedStatement=null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "admin");
-            preparedStatement=connection.prepareStatement("SELECT password, gender")
+            preparedStatement = connection.prepareStatement("SELECT password, gender FROM users WHERE userName =?");
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
 
+<<<<<<< Updated upstream
+=======
+            if (resultSet.isBeforeFirst()) {
+                System.out.println("User Name not found");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("provided info are incorrect");
+                alert.show();
 
+            } else {
+                while (resultSet.next()) {
+                    String retrivedPassword = resultSet.getString("password");
+                    String retrivedGender = resultSet.getString("gender");
+                    String retrivedRole = resultSet.getString("role");
+
+                    if (retrivedPassword.equals(password)) {
+                        changeScene(event, "mainPanel.fxml", "main page", username, retrivedGender, retrivedRole);
+                    } else {
+                        System.out.println("password didnt match");
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("provided info are incorrect");
+                        alert.show();
+                    }
+
+                }
+            }
+
+>>>>>>> Stashed changes
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } finally {
 
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        }
 
     }
 

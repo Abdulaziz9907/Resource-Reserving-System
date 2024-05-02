@@ -8,7 +8,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <Label text="main page" />
-            <Button fx:id="exit_button" layoutX="550.0" layoutY="17.0" mnemonicParsing="false" text="exit" />
+            <Button fx:id="exit_button" layoutX="550.0" layoutY="14.0" mnemonicParsing="false" text="exit" />
          </children>
       </AnchorPane>
    </children>
