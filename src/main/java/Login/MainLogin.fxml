@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="105.0">
+         <children>
+            <ImageView fitHeight="418.0" fitWidth="342.0" layoutX="-125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@login%20background.jpg" />
+               </image>
+            </ImageView>
+            <Label accessibleRole="HYPERLINK" ellipsisString="" layoutX="5.0" layoutY="29.0" prefHeight="34.0" prefWidth="207.0" text="Resource Reserving System" textOverrun="CLIP">
+               <textFill>
+                  <RadialGradient centerX="1.0" centerY="0.6987381748596577" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="0.9700000286102295" blue="0.3395000100135803" opacity="0.4699999988079071" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+               <font>
+                  <Font name="Diwani Letter" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="376.0">
+         <children>
+            <Label layoutX="43.0" layoutY="163.0" text="Password" />
+            <Label layoutX="40.0" layoutY="101.0" text="User name" />
+            <TextField fx:id="pass_tf" layoutX="149.0" layoutY="159.0" />
+            <TextField fx:id="username_tf" layoutX="149.0" layoutY="97.0" />
+            <Button fx:id="login_button" layoutX="198.0" layoutY="277.0" mnemonicParsing="false" text="Log in" />
+            <Button fx:id="signup_button" layoutX="194.0" layoutY="335.0" mnemonicParsing="false" text="Sign up" />
+         </children></AnchorPane>
+   </children>
+</HBox>

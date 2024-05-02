@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="149.0" />
+      <Pane prefHeight="400.0" prefWidth="305.0">
+         <children>
+            <ImageView fitHeight="429.0" fitWidth="355.0" layoutX="-24.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@login%20background.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="151.0" text="Password" />
+            <Label layoutX="14.0" layoutY="91.0" text="User name" />
+            <TextField layoutX="101.0" layoutY="87.0" />
+            <TextField layoutX="101.0" layoutY="147.0" />
+            <Label layoutX="19.0" layoutY="217.0" text="Gender" />
+            <Label layoutX="19.0" layoutY="274.0" text="Role" />
+            <ChoiceBox layoutX="101.0" layoutY="213.0" prefWidth="150.0" />
+            <ChoiceBox layoutX="101.0" layoutY="270.0" prefHeight="0.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+   </children>
+</HBox>
