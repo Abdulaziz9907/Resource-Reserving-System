@@ -110,7 +110,7 @@ public class DB {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "admin");
-            preparedStatement=connection.prepareStatement("SELECT password, g")
+            preparedStatement=connection.prepareStatement("SELECT password, g");
 
 
 
