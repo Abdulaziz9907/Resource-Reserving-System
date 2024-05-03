@@ -37,7 +37,7 @@ public class DB {
 
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "admin");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE userName = ?");
             psCheckUserExists.setString(1, username);
             resultSet = psCheckUserExists.executeQuery();
@@ -48,7 +48,7 @@ public class DB {
                 alert.setContentText("You cannot use this username");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO users (userName,password, gender, role VALUES (?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO users (userName,password, gender, role) VALUES (?,?,?,?) ");
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.setString(3, gender);
@@ -109,12 +109,12 @@ public class DB {
         ResultSet resultSet = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "admin");
-            preparedStatement = connection.prepareStatement("SELECT password, gender FROM users WHERE userName =?");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
+            preparedStatement = connection.prepareStatement("SELECT password, gender, role FROM users WHERE userName = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
 
-            if (resultSet.isBeforeFirst()) {
+            if (!resultSet.isBeforeFirst()) {
                 System.out.println("User Name not found");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("provided info are incorrect");

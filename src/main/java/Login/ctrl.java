@@ -35,7 +35,7 @@ public class ctrl implements Initializable {
         signup_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DB.changeScene(event,"SignUp.fxml,", "Sign up", null,null, null);
+                DB.changeScene(event,"SignUp.fxml", "Sign up", null,null, null);
             }
         });
 

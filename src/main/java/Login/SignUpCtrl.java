@@ -50,7 +50,7 @@ public class SignUpCtrl implements Initializable {
                 String toggleName2= ((RadioButton)toggleGroup2.getSelectedToggle()).getText();
 
                 if(!username_tf.getText().trim().isEmpty() && !pass_tf.getText().trim().isEmpty()){
-                    DB.signUp(event,username_tf.getText(),pass_tf.getText(),toggleName,toggleName2);
+                    DB.signUp(event,username_tf.getText(),pass_tf.getText(),toggleName2,toggleName);
                 }
 
                 else{
