@@ -114,8 +114,6 @@ public class DB {
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
 
-<<<<<<< Updated upstream
-=======
             if (resultSet.isBeforeFirst()) {
                 System.out.println("User Name not found");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -140,7 +138,6 @@ public class DB {
                 }
             }
 
->>>>>>> Stashed changes
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
