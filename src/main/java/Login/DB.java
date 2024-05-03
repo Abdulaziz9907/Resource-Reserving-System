@@ -11,6 +11,11 @@ import java.sql.*;
 
 public class DB {
 
+    private static String username_DB;
+    private static String gender_DB;
+    private static String role_DB;
+
+
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String gender, String role) {
 
         Parent root = null;
@@ -126,10 +131,17 @@ public class DB {
                     String retrivedGender = resultSet.getString("gender");
                     String retrivedRole = resultSet.getString("role");
 
+
                     if (retrivedPassword.equals(password)) {
                         changeScene(event, "mainPanel.fxml", "main page", username, retrivedGender, retrivedRole);
+                        username_DB=username;
+                        gender_DB=retrivedGender;
+                        role_DB=retrivedRole;
+
+
+
                     } else {
-                        System.out.println("password didnt match");
+                        System.out.println("password didn't match");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setContentText("provided info are incorrect");
                         alert.show();
@@ -168,10 +180,25 @@ public class DB {
                 }
 
             }
-
-
+            
         }
 
     }
+
+    public static String getUsername(){
+        return username_DB;
+    }
+
+    public static String getGender() {
+        return gender_DB;
+    }
+
+    public static String getRole() {
+        return role_DB;
+    }
+
+
+
+
 
 }
