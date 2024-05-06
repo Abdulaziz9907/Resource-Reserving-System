@@ -18,7 +18,7 @@
   You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<project name="MySQL Connector/J" default="build" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+<project name="MySQL Connector/J" default="build" basedir="../../../../Data/mysql-connector-j-8.4.0" xmlns:jacoco="antlib:org.jacoco.ant">
     <description>
 Compiling MySQL Connector/J
 ===========================
@@ -408,7 +408,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
     <!-- Load revision details either from a git repository or from a revision-info.properties file. -->
     <target name="-load-info-properties">
         <!-- Run git commands in Windows. -->
-        <exec dir="."
+        <exec dir="../../../../Data/mysql-connector-j-8.4.0"
               executable="cmd"
               osfamily="windows"
               outputproperty="com.mysql.cj.build.git.branchFromCmd"
@@ -417,7 +417,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
               resultproperty="com.mysql.cj.build.git.branchExitStatus">
             <arg line="/c git rev-parse --verify --abbrev-ref HEAD" />
         </exec>
-        <exec dir="."
+        <exec dir="../../../../Data/mysql-connector-j-8.4.0"
               executable="cmd"
               osfamily="windows"
               outputproperty="com.mysql.cj.build.git.dateFromCmd"
@@ -426,7 +426,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
               resultproperty="com.mysql.cj.build.git.dateExitStatus">
             <arg line="/c git show --no-patch --format=%ci HEAD^^{commit}" />
         </exec>
-        <exec dir="."
+        <exec dir="../../../../Data/mysql-connector-j-8.4.0"
               executable="cmd"
               osfamily="windows"
               outputproperty="com.mysql.cj.build.git.commitFromCmd"
@@ -435,7 +435,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
               resultproperty="com.mysql.cj.build.git.commitExitStatus">
             <arg line="/c git rev-parse --verify HEAD^^{commit}" />
         </exec>
-        <exec dir="."
+        <exec dir="../../../../Data/mysql-connector-j-8.4.0"
               executable="cmd"
               osfamily="windows"
               outputproperty="com.mysql.cj.build.git.shortFromCmd"
@@ -577,15 +577,15 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <copy todir="${com.mysql.cj.build.dir.driver}" filtering="true" encoding="UTF-8" outputencoding="UTF-8">
             <fileset dir="src/build/java" />
             <fileset dir="src/build/misc" />
-            <fileset dir="src/generated/java" />
-            <fileset dir="src/main/user-api/java" />
-            <fileset dir="src/main/user-impl/java" />
-            <fileset dir="src/main/core-api/java" />
-            <fileset dir="src/main/core-impl/java" />
-            <fileset dir="src/main/protocol-impl/java" />
-            <fileset dir="src/main/resources" />
-            <fileset dir="src/legacy/java" />
-            <fileset dir="src/demo/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/generated/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/user-api/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/user-impl/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/core-api/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/core-impl/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/protocol-impl/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/main/resources" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/legacy/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/demo/java" />
 
             <filterset refid="versionFilterset" />
             <filterset refid="licenseFilterset" />
@@ -598,7 +598,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <mkdir dir="${com.mysql.cj.testsuite.build.dir}" />
 
         <copy todir="${com.mysql.cj.testsuite.build.dir}/${com.mysql.cj.build.driver.fullName}" filtering="true" encoding="UTF-8" outputencoding="UTF-8">
-            <fileset dir="src/test/java" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0/src/test/java" />
             <filterset refid="versionFilterset" />
             <filterset refid="licenseFilterset" />
         </copy>
@@ -666,7 +666,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <get src="${com.mysql.cj.dist.licenseUrl}" dest="${com.mysql.cj.build.dir.driver}/LICENSE" verbose="true" />
         <fixcrlf file="${com.mysql.cj.build.dir.driver}/LICENSE" tab="remove" tablength="8" eol="lf" />
 
-        <copy file="${basedir}/README" tofile="${com.mysql.cj.build.dir.driver}/README" overwrite="true" />
+        <copy file="/Data/mysql-connector-j-8.4.0/README" tofile="${com.mysql.cj.build.dir.driver}/README" overwrite="true" />
     </target>
 
 
@@ -859,7 +859,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
                 <patternset refid="exclude.files" />
             </fileset>
 
-            <fileset dir="." includes="src/**, lib/*, build.xml, CHANGES">
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0" includes="src/**, lib/*, build.xml, CHANGES">
                 <patternset refid="exclude.files" />
             </fileset>
         </copy>
@@ -951,7 +951,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <mkdir dir="${com.mysql.cj.build.dir.javadoc}" />
 
         <tempfile property="com.mysql.cj.docs.jdk8pkg" prefix="jdk8pkg_" />
-        <mkdir dir="${com.mysql.cj.docs.jdk8pkg}" />
+        <mkdir dir="build.xml" />
 
         <get src="https://docs.oracle.com/javase/8/docs/api/package-list" dest="${com.mysql.cj.docs.jdk8pkg}/package-list" verbose="true" />
 
@@ -961,14 +961,14 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
                  private="yes"
                  source="8"
                  failonwarning="yes"
-                 overview="src/main/doc/connector-j-overview.html"
+                 overview="../../../../Data/mysql-connector-j-8.4.0/src/main/doc/connector-j-overview.html"
                  windowtitle="MySQL Connector/J"
                  header="&lt;b&gt;MySQL Connector/J Reference&lt;br&gt;v${com.mysql.cj.build.driver.version.full}&lt;/b&gt;"
                  bottom="&lt;center&gt;Copyright &amp;copy; 2016, 2024, Oracle and/or its affiliates.&lt;/center&gt;"
                  linkoffline="https://docs.oracle.com/javase/8/docs/api ${com.mysql.cj.docs.jdk8pkg}">
             <sourcepath>
-                <pathelement path="src/main/user-api/java" />
-                <pathelement path="src/main/core-api/java" />
+                <pathelement path="../../../../Data/mysql-connector-j-8.4.0/src/main/user-api/java" />
+                <pathelement path="../../../../Data/mysql-connector-j-8.4.0/src/main/core-api/java" />
             </sourcepath>
             <classpath refid="com.mysql.cj.build.classpath" />
         </javadoc>
@@ -979,7 +979,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <copy file="${com.mysql.cj.build.dir.driver}/INFO_SRC" todir="${com.mysql.cj.build.dir.javadoc}" />
 
         <delete verbose="yes" includeemptydirs="yes">
-            <fileset dir="${basedir}" includes="jdk8pkg_*/**" />
+            <fileset dir="/Data/mysql-connector-j-8.4.0" includes="jdk8pkg_*/**" />
         </delete>
 
         <jar jarfile="${com.mysql.cj.dist.dir.maven}/${com.mysql.cj.build.driver.fullName}-javadoc.jar" basedir="${com.mysql.cj.build.dir.javadoc}" />
@@ -1179,7 +1179,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <mkdir dir="${com.mysql.cj.docs.xdevapi}" />
 
         <tempfile property="com.mysql.cj.docs.jdk8pkg" prefix="jdk8pkg_" />
-        <mkdir dir="${com.mysql.cj.docs.jdk8pkg}" />
+        <mkdir dir="build.xml" />
 
         <get src="https://docs.oracle.com/javase/8/docs/api/package-list" dest="${com.mysql.cj.docs.jdk8pkg}/package-list" verbose="true" />
 
@@ -1189,19 +1189,19 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
                  private="yes"
                  source="8"
                  failonwarning="yes"
-                 overview="src/main/doc/mysqlx-overview.html"
+                 overview="../../../../Data/mysql-connector-j-8.4.0/src/main/doc/mysqlx-overview.html"
                  windowtitle="MySQL Connector/J X DevAPI Reference"
                  header="&lt;b&gt;MySQL Connector/J X DevAPI Reference&lt;br&gt;v${com.mysql.cj.build.driver.version.full}&lt;/b&gt;"
                  bottom="&lt;center&gt;Copyright &amp;copy; 2016, 2024, Oracle and/or its affiliates.&lt;/center&gt;"
                  linkoffline="https://docs.oracle.com/javase/8/docs/api ${com.mysql.cj.docs.jdk8pkg}">
             <sourcepath>
-                <pathelement path="src/main/user-api/java" />
-                <pathelement path="src/main/core-api/java" />
+                <pathelement path="../../../../Data/mysql-connector-j-8.4.0/src/main/user-api/java" />
+                <pathelement path="../../../../Data/mysql-connector-j-8.4.0/src/main/core-api/java" />
             </sourcepath>
         </javadoc>
 
         <delete verbose="yes" includeemptydirs="yes">
-            <fileset dir="${basedir}" includes="jdk8pkg_*/**" />
+            <fileset dir="/Data/mysql-connector-j-8.4.0" includes="jdk8pkg_*/**" />
         </delete>
     </target>
 
@@ -1216,9 +1216,9 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
             description="Generates properties table doc sources for the MySQL Connector/J Developer Guide web pages."
             depends="-compile-driver">
         <tempfile property="com.mysql.cj.generated.properties.xml" suffix=".xml" />
-        <java classname="documentation.PropertiesDocGenerator" output="${com.mysql.cj.generated.properties.xml}" classpath="${com.mysql.cj.build.dir.driver}" />
-        <copy file="${com.mysql.cj.generated.properties.xml}" tofile="${com.mysql.cj.build.dir.driver}/docs/sources/connPropsToDocbook.xml" />
-        <delete file="${com.mysql.cj.generated.properties.xml}" />
+        <java classname="documentation.PropertiesDocGenerator" output="build.xml" classpath="${com.mysql.cj.build.dir.driver}" />
+        <copy file="build.xml" tofile="${com.mysql.cj.build.dir.driver}/docs/sources/connPropsToDocbook.xml" />
+        <delete file="build.xml" />
     </target>
 
 
@@ -1228,10 +1228,10 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
             depends="-compile-driver">
         <tempfile property="com.mysql.cj.generated.errorsMapping.xml" suffix=".xml" />
         <java classname="documentation.ErrorMappingsDocGenerator"
-              output="${com.mysql.cj.generated.errorsMapping.xml}"
+              output="build.xml"
               classpath="${com.mysql.cj.build.dir.driver}" />
-        <copy file="${com.mysql.cj.generated.errorsMapping.xml}" tofile="${com.mysql.cj.build.dir.driver}/docs/sources/errorMapToDocbook.xml" />
-        <delete file="${com.mysql.cj.generated.errorsMapping.xml}" />
+        <copy file="build.xml" tofile="${com.mysql.cj.build.dir.driver}/docs/sources/errorMapToDocbook.xml" />
+        <delete file="build.xml" />
     </target>
 
 
@@ -1526,7 +1526,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <mkdir dir="${com.mysql.cj.build.dir}/rpm/SRPMS" />
 
         <copy todir="${com.mysql.cj.build.dir}/tmp/${com.mysql.cj.build.driver.fullName}" overwrite="true">
-            <fileset dir="." excludes="${com.mysql.cj.dist.dir}/**, ${com.mysql.cj.build.dir}/**" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0" excludes="${com.mysql.cj.dist.dir}/**, ${com.mysql.cj.build.dir}/**" />
         </copy>
         <!-- Directory tmp is empty besides what to pack. -->
         <tar destfile="${com.mysql.cj.build.dir}/rpm/SOURCES/${com.mysql.cj.build.driver.fullName}.tar.gz"
@@ -1582,10 +1582,10 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
         <local name="orig_package_name" />
         <property name="orig_package_name"
                   value="${com.mysql.cj.build.driver.extendedName}${com.mysql.cj.dist.packageExtraName}_${com.mysql.cj.build.driver.version.full}${deb_version_suffix}.orig.tar.gz" />
-        <tar destfile="build/deb/${orig_package_name}" basedir="." compression="gzip" excludes="${com.mysql.cj.dist.dir}/**, build/**" />
+        <tar destfile="build/deb/${orig_package_name}" basedir="../../../../Data/mysql-connector-j-8.4.0" compression="gzip" excludes="${com.mysql.cj.dist.dir}/**, build/**" />
 
         <copy todir="build/deb/src" overwrite="true">
-            <fileset dir="." excludes="${com.mysql.cj.dist.dir}/**, build/**" />
+            <fileset dir="../../../../Data/mysql-connector-j-8.4.0" excludes="${com.mysql.cj.dist.dir}/**, build/**" />
         </copy>
 
         <tstamp>
