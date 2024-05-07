@@ -1,9 +1,9 @@
-module com.example.resourcereservingsystem {
+module Login {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
 
+    opens Login to javafx.fxml;
+    exports Login;
 
-    opens com.example.resourcereservingsystem to javafx.fxml;
-    exports com.example.resourcereservingsystem;
 }
