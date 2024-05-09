@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpenEvent.OpenEvent">
+   <children>
+      <Pane layoutX="14.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <DatePicker layoutX="312.0" layoutY="18.0" prefHeight="36.0" prefWidth="163.0" />
+            <Label layoutX="159.0" layoutY="18.0" prefHeight="36.0" prefWidth="65.0" text="Select Date">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Label>
+            <SplitMenuButton layoutX="312.0" layoutY="72.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="163.0" text="Select Time">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </SplitMenuButton>
+            <Label layoutX="159.0" layoutY="72.0" prefHeight="36.0" prefWidth="65.0" text="Select time">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Label>
+            <TableView layoutX="159.0" layoutY="127.0" prefHeight="251.0" prefWidth="316.0">
+              <columns>
+                <TableColumn text="Facility" />
+                <TableColumn prefWidth="233.0" text="Details" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="418.0" layoutX="-17.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+            <Label layoutX="14.0" layoutY="-6.0" prefHeight="48.0" prefWidth="149.0" text="Open Event" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="366.0" mnemonicParsing="false" text="Return" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
