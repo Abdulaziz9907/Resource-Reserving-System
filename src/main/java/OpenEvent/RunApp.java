@@ -1,4 +1,4 @@
-package Login;
+package OpenEvent;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
