@@ -20,7 +20,7 @@ public class LoggedCtrl implements Initializable {
         exit_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DB.changeScene(event,"MainLogin.fxml","Log in", null,null,null);
+                DB.changeScene(event,"/MainLogin.fxml","Log in", null,null,null);
             }
 
 

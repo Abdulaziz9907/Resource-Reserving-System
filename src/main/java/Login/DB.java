@@ -60,7 +60,7 @@ public class DB {
                 psInsert.setString(4, role);
                 psInsert.executeUpdate();
 
-                changeScene(event, "mainPanel.fxml", "Main Panel", username, gender, role);
+                changeScene(event, "/mainPanel.fxml", "Main Panel", username, gender, role);
 
 
             }
@@ -134,7 +134,7 @@ public class DB {
 
 
                     if (retrivedPassword.equals(password)) {
-                        changeScene(event, "mainPanel.fxml", "main page", username, retrivedGender, retrivedRole);
+                        changeScene(event, "/mainPanel.fxml", "main page", username, retrivedGender, retrivedRole);
                         username_DB=username;
                         gender_DB=retrivedGender;
                         role_DB=retrivedRole;
@@ -179,6 +179,10 @@ public class DB {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
+                System.out.println(getGender());
+                System.out.println(getUsername());
+                System.out.println(getRole());
 
             }
 
