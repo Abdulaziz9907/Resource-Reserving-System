@@ -7,6 +7,9 @@ module java {
     exports Login;
     opens OpenEvent to javafx.fxml;
     exports OpenEvent;
+//    opens MainPanel to javafx.fxml;
+//    exports MainPanel;
+
 
 }
 

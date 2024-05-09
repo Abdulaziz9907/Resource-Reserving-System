@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.resourcereservingsystem/OpenEvent.RunApp
+                                com.example.resourcereservingsystem/Login.RunApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
