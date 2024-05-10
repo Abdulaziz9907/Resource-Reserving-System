@@ -5,10 +5,15 @@ module java {
 
     opens Login to javafx.fxml;
     exports Login;
+
     opens OpenEvent to javafx.fxml;
     exports OpenEvent;
-//    opens MainPanel to javafx.fxml;
-//    exports MainPanel;
+
+    opens MainPanel to javafx.fxml;
+    exports MainPanel;
+
+    opens ViewReservations to javafx.fxml;
+    exports ViewReservations;
 
 
 }
