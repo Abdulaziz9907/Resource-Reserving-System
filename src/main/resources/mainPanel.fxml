@@ -2,14 +2,29 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.LoggedCtrl">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
 
-            <Label text="main page" />
-            <Button fx:id="exit_button" layoutX="550.0" layoutY="14.0" mnemonicParsing="false" text="exit" />
+            <Label layoutX="18.0" layoutY="17.0" text="Main page">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Button fx:id="exit_button" layoutX="526.0" layoutY="14.0" mnemonicParsing="false" text="Log out" />
+            <Button fx:id="OpenEvent_button" layoutX="45.0" layoutY="135.0" mnemonicParsing="false" text="Open Event" />
+            <Label layoutX="17.0" layoutY="92.0" text="What do you want to do?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="Register_button" layoutX="144.0" layoutY="135.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="ReserveFacility_button" layoutX="144.0" layoutY="177.0" mnemonicParsing="false" text="Reserve Facilities" />
+            <Button fx:id="ShowEvents_button" layoutX="43.0" layoutY="177.0" mnemonicParsing="false" text="Show Events" />
+            <Button fx:id="ReserveLabsClasses_button" layoutX="263.0" layoutY="177.0" mnemonicParsing="false" text="Reserve Labs or Classes" />
+            <Button fx:id="ViewReservation_button" layoutX="226.0" layoutY="135.0" mnemonicParsing="false" text="View Reservation" />
          </children>
       </AnchorPane>
    </children>
