@@ -29,6 +29,7 @@ public class SignUpCtrl implements Initializable {
     private TextField username_tf;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
