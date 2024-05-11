@@ -11,7 +11,7 @@ import static Login.DB.changeScene;
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName, LocalDate ReservationDate, String facilityLocation, String reservingTime, String gender ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName,String ReservationDate, String facilityLocation, String reservingTime, String gender ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -26,6 +26,7 @@ public class DataBase_ReserveFacilities {
             psCheckUserExists = connection.prepareStatement("SELECT * FROM reservefacilities WHERE FacilityName = ?");
             psCheckUserExists.setString(1, facilityName);
             resultSet = psCheckUserExists.executeQuery();
+
 
             if (resultSet.isBeforeFirst()) {
                 System.out.println("facility is reserved, choose another faculty");

@@ -50,7 +50,8 @@ public class Actions implements Initializable {
             public void handle(ActionEvent event) {
 
                 if (!Facility_Name.getText().trim().isEmpty()  && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
-                    DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), date, Facility_Location.getText(), Facility_Time.getText(), toggleName);
+
+                    DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), String.valueOf(date), Facility_Location.getText(), Facility_Time.getText(), toggleName);
                 } else {
 
                     System.out.println("fill all information");
