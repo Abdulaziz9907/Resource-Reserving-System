@@ -1,18 +1,13 @@
 package ReserveFacilities;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.stage.Stage;
-import java.io.IOException;
+
 import java.sql.*;
 
 
-public class ReserveFacilities {
+public class DataBase_ReserveFacilities {
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName, Date ReservationDate, String facilityLocation, String reservingTime, String gender) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName, Date ReservationDate, String facilityLocation, String reservingTime, String genderF,String genderM ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
