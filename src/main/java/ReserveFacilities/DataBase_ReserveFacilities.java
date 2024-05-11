@@ -15,8 +15,7 @@ public class DataBase_ReserveFacilities {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-
-
+        
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
 
