@@ -49,7 +49,7 @@ public class Actions implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
-                if (!Facility_Name.getText().trim().isEmpty() && !date.isEqual(null) && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
+                if (!Facility_Name.getText().trim().isEmpty()  && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
                     DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), date, Facility_Location.getText(), Facility_Time.getText(), toggleName);
                 } else {
 
