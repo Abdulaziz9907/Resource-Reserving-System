@@ -18,6 +18,9 @@ module java {
     opens ReserveLabsClasses to javafx.fxml;
     exports ReserveLabsClasses;
 
+    opens ReserveFacilities to javafx.fxml;
+    exports ReserveFacilities;
+
 
 }
 
