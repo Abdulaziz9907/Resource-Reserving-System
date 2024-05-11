@@ -1,4 +1,4 @@
-package Register;
+package RegisterStudent;
 
 public class RegisterStudent {
 }
