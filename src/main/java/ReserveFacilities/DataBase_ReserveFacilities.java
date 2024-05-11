@@ -3,14 +3,17 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 
 public class DataBase_ReserveFacilities {
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName, Date ReservationDate, String facilityLocation, String reservingTime, String genderF,String genderM ) {
+
+    public static void FaciltiesReservation(ActionEvent event, String facilityName, LocalDate ReservationDate, String facilityLocation, String reservingTime, String gender ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+
 
         try {
 

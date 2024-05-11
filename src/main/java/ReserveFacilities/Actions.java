@@ -1,13 +1,11 @@
 package ReserveFacilities;
+import Login.DB;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -25,7 +23,7 @@ public class Actions implements Initializable {
     @FXML
     private TextField Facility_Name;
     @FXML
-    private LocalDate Facility_Date;
+    private DatePicker Facility_Date;
     @FXML
     private TextField Facility_Location;
     @FXML
@@ -37,23 +35,37 @@ public class Actions implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        LocalDate date = Facility_Date.getValue();
 
-
-
-        ToggleGroup toggleGroup=new ToggleGroup();
+        ToggleGroup toggleGroup = new ToggleGroup();
         fMale_option.setToggleGroup(toggleGroup);
         fFemale_option.setToggleGroup(toggleGroup);
-        //Facility_Apply.setOnAction(new EventHandler<ActionEvent>(){
 
-          //  @Override
-           // public void handle(ActionEvent event){DataBase_ReserveFacilities.FaciltiesReservation(event,
-                  //  Facility_Name.getText(),
-                  //  Facility_Date.getValue(),
-                  //  Facility_Location.getText(),
-                   // Facility_Time.getText()
-                   // );
-            }
+        fMale_option.setSelected(true);
+
+        String toggleName = ((RadioButton)toggleGroup.getSelectedToggle()).getText();
+        Facility_Apply.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {(event, Facility_Name.getText(),
+                        date,
+                        Facility_Location.getText(),
+                        Facility_Time.getText(),
+                        toggleName);}
+        });
+        if(!Facility_Name.getText().trim().isEmpty() && !date.isEqual(null)&&!Facility_Location.getText().trim().isEmpty()&&!Facility_Time.getText().trim().isEmpty()){
+            DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), date, Facility_Location.getText(), Facility_Time.getText(), toggleName);}
         }
-       // );}
+
+        else{
+
+            System.out.println("fill all information");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("fill all the information");
+            alert.show();
+        }
+
+    }
+}
 
 
