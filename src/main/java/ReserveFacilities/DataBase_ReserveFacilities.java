@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName, LocalDate ReservationDate, String facilityLocation, String reservingTime, String gender ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName, String facilityLocation, String reservingTime, String gender ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -19,7 +19,7 @@ public class DataBase_ReserveFacilities {
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
             preparedStatement = connection.prepareStatement("SELECT Facility Name, Reservation Date, Facility Location, Reserving Time, Gender FROM reservefacilities WHERE Facility Name = ?");
-            preparedStatement.setString(0, facilityName);
+            preparedStatement.setString(2, facilityLocation);
             resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.isBeforeFirst()) {
