@@ -43,29 +43,26 @@ public class Actions implements Initializable {
 
         fMale_option.setSelected(true);
 
-        String toggleName = ((RadioButton)toggleGroup.getSelectedToggle()).getText();
+        String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
         Facility_Apply.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event) {(event, Facility_Name.getText(),
-                        date,
-                        Facility_Location.getText(),
-                        Facility_Time.getText(),
-                        toggleName);}
+            public void handle(ActionEvent event) {
+
+                if (!Facility_Name.getText().trim().isEmpty() && !date.isEqual(null) && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
+                    DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), date, Facility_Location.getText(), Facility_Time.getText(), toggleName);
+                } else {
+
+                    System.out.println("fill all information");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("fill all the information");
+                    alert.show();
+                }
+            }
+
+
         });
-        if(!Facility_Name.getText().trim().isEmpty() && !date.isEqual(null)&&!Facility_Location.getText().trim().isEmpty()&&!Facility_Time.getText().trim().isEmpty()){
-            DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), date, Facility_Location.getText(), Facility_Time.getText(), toggleName);}
-        }
 
-        else{
-
-            System.out.println("fill all information");
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("fill all the information");
-            alert.show();
-        }
 
     }
 }
-
-
