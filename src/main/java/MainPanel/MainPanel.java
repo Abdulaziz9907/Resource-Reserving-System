@@ -1,5 +1,4 @@
 package MainPanel;
-import Login.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +19,8 @@ public class MainPanel implements Initializable {
     private Button OpenEvent_button;
     @FXML
     private Button ViewReservation_button;
+    @FXML
+    private Button ReserveLabsClasses_button;
     @FXML
     private Button exit_button;
 
@@ -65,6 +66,24 @@ public class MainPanel implements Initializable {
 
                 }
             });
+
+        ReserveLabsClasses_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/ReserveLabsClasses.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setTitle("Reserve Labs and Classes");
+                    stage.setScene(new Scene(root, 600, 400));
+                    stage.show();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        });
 
             exit_button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
