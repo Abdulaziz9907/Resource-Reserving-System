@@ -18,9 +18,7 @@ public class DataBase_ReserveFacilities {
 
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
-
         
-
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM reservefacilities WHERE FacilityName = ?");
