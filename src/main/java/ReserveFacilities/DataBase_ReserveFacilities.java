@@ -47,8 +47,6 @@ public class DataBase_ReserveFacilities {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("reservation complete");
                 alert.show();
-
-
             }
 
 
