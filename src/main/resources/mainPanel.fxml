@@ -20,7 +20,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="Register_button" layoutX="144.0" layoutY="135.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="Register_button" layoutX="144.0" layoutY="135.0" mnemonicParsing="false" text="RegisterStudent" />
             <Button fx:id="ReserveFacilities_Button" layoutX="144.0" layoutY="177.0" mnemonicParsing="false" text="Reserve Facilities" />
             <Button fx:id="ShowEvents_button" layoutX="43.0" layoutY="177.0" mnemonicParsing="false" text="Show Events" />
             <Button fx:id="ReserveLabsClasses_button" layoutX="263.0" layoutY="177.0" mnemonicParsing="false" text="Reserve Labs or Classes" />

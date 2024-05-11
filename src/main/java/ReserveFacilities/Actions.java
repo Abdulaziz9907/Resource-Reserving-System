@@ -38,17 +38,22 @@ public class Actions implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Facility_Apply.setOnAction(new EventHandler<ActionEvent>(){
-            ToggleGroup toggleGroup=new ToggleGroup();
-            fMale_option.setToggleGroup(toggleGroup);
-            fFemale_option.setToggleGroup(toggleGroup);
-            @Override
-            public void handle(ActionEvent event){DataBase_ReserveFacilities.FaciltiesReservation(event,
-                    Facility_Name.getText(),
-                    Facility_Date.getValue(),
-                    Facility_Location.getText(),
-                    Facility_Time.getText(),);}
+
+
+        ToggleGroup toggleGroup=new ToggleGroup();
+        fMale_option.setToggleGroup(toggleGroup);
+        fFemale_option.setToggleGroup(toggleGroup);
+        //Facility_Apply.setOnAction(new EventHandler<ActionEvent>(){
+
+          //  @Override
+           // public void handle(ActionEvent event){DataBase_ReserveFacilities.FaciltiesReservation(event,
+                  //  Facility_Name.getText(),
+                  //  Facility_Date.getValue(),
+                  //  Facility_Location.getText(),
+                   // Facility_Time.getText()
+                   // );
+            }
         }
-        );}
-}
+       // );}
+
 
