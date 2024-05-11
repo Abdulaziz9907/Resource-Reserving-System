@@ -14,6 +14,11 @@ public class DataBase_ReserveFacilities {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
+        
+        PreparedStatement psInsert = null;
+        PreparedStatement psCheckUserExists = null;
+
+
 
         try {
 
