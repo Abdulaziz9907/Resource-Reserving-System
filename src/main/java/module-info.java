@@ -15,6 +15,12 @@ module java {
     opens ViewReservations to javafx.fxml;
     exports ViewReservations;
 
+    opens ReserveLabsClasses to javafx.fxml;
+    exports ReserveLabsClasses;
+
+    opens ReserveFacilities to javafx.fxml;
+    exports ReserveFacilities;
+
 
 }
 
