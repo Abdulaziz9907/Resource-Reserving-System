@@ -15,10 +15,11 @@ public class DataBase_ReserveFacilities {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        
+
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
 
+        
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
