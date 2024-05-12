@@ -28,20 +28,21 @@
                   <Font name="Diwani Letter" size="22.0" />
                </font>
             </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
          </children></AnchorPane>
       <AnchorPane prefHeight="400.0" prefWidth="376.0">
          <children>
-            <ImageView fitHeight="187.0" fitWidth="386.0" layoutX="-2.0" layoutY="213.0" pickOnBounds="true">
+            <ImageView fitHeight="220.0" fitWidth="398.0" layoutX="-8.0" layoutY="180.0" pickOnBounds="true">
                <image>
                   <Image url="@images/illustration.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="arrowImageView1" fitHeight="27.0" fitWidth="27.0" layoutX="231.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="arrowImageView1" fitHeight="27.0" fitWidth="39.0" layoutX="231.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/arrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="arrowImageView" fitHeight="27.0" fitWidth="27.0" layoutX="226.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="arrowImageView" fitHeight="27.0" fitWidth="27.0" layoutX="233.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/arrow.png" />
                </image>
@@ -52,7 +53,7 @@
                </font></TextField>
             <Button fx:id="login_button" layoutX="169.0" layoutY="184.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Log in" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Button>
             <Button fx:id="signup_button" layoutX="164.0" layoutY="230.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
                <font>

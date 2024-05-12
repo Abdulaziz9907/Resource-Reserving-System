@@ -10,19 +10,37 @@
       <Pane prefHeight="400.0" prefWidth="149.0" />
       <Pane prefHeight="400.0" prefWidth="450.0">
          <children>
-            <ImageView fitHeight="420.0" fitWidth="203.0" layoutX="-153.0" layoutY="-16.0" pickOnBounds="true">
+            <ImageView fx:id="arrowImageView31" fitHeight="187.0" fitWidth="404.0" layoutX="63.0" layoutY="229.0" pickOnBounds="true">
+               <image>
+                  <Image url="@images/illustration2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="420.0" fitWidth="219.0" layoutX="-153.0" layoutY="-16.0" pickOnBounds="true">
                <image>
                   <Image url="@images/green_background.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="arrowImageView2" fitHeight="23.0" fitWidth="26.0" layoutX="305.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arrowImageView3" fitHeight="23.0" fitWidth="26.0" layoutX="329.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/arrow.png" />
+               </image>
+            </ImageView>
             <TextField fx:id="username_tf" layoutX="217.0" layoutY="48.0" promptText="Enter User name" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #00573F;" />
-            <Label layoutX="177.0" layoutY="156.0" text="Gender:" />
-            <Label layoutX="185.0" layoutY="235.0" text="Role:" />
-            <Button fx:id="login_button" layoutX="231.0" layoutY="321.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return to Log In" textFill="WHITE">
+            <Label layoutX="177.0" layoutY="156.0" text="Gender:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Label>
+            <Label layoutX="184.0" layoutY="186.0" text="Role:" />
+            <Button fx:id="login_button" layoutX="219.0" layoutY="267.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return to Log In" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font></Button>
-            <RadioButton fx:id="roleStudent" layoutX="246.0" layoutY="237.0" mnemonicParsing="false" text="student">
+            <RadioButton fx:id="roleStudent" layoutX="245.0" layoutY="188.0" mnemonicParsing="false" text="student">
                <font>
                   <Font name="Arial" size="10.0" />
                </font></RadioButton>
@@ -34,22 +52,30 @@
                <font>
                   <Font name="Arial" size="10.0" />
                </font></RadioButton>
-            <RadioButton fx:id="roleFacility" layoutX="317.0" layoutY="237.0" mnemonicParsing="false" text="facility">
+            <RadioButton fx:id="roleFacility" layoutX="316.0" layoutY="188.0" mnemonicParsing="false" text="facility">
                <font>
                   <Font name="Arial" size="10.0" />
                </font>
             </RadioButton>
-            <Button fx:id="signup_button" layoutX="257.0" layoutY="276.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
+            <Button fx:id="signup_button" layoutX="244.0" layoutY="225.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font></Button>
-            <Label layoutX="-141.0" layoutY="27.0" text="Set Up your account " textFill="WHITE">
+            <Label layoutX="-141.0" layoutY="27.0" text="Set Up Your Account " textFill="WHITE">
                <font>
                   <Font name="Diwani Letter" size="21.0" />
                </font>
             </Label>
-            <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="166.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="186.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/person.png" />
+               </image></ImageView>
             <TextField fx:id="pass_tf" layoutX="217.0" layoutY="100.0" promptText="Enter Password" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #00573F;" />
+            <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="186.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/key.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
