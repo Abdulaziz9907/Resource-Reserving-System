@@ -1,15 +1,15 @@
-package ReserveFacilities;
+package ReserveLabsClasses;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
+
 import java.sql.*;
 import java.time.LocalDate;
 import static Login.DB.changeScene;
 
+public class ReserveLabsClasses_DB {
 
-public class DataBase_ReserveFacilities {
-
-
-    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTime, String gender ) {
+    public static void Reserve_CL(ActionEvent event, String RoomNumber, String ReservationType,String BuildingNumber , java.sql.Date ReservationDate, String ReservationTime, String Gender, String ExtraDetails){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -19,8 +19,8 @@ public class DataBase_ReserveFacilities {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservefacilities WHERE FacilityName = ?");
-            psCheckUserExists.setString(1, facilityName);
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE RoomNumber = ?");
+            psCheckUserExists.setString(1, RoomNumber);
             resultSet = psCheckUserExists.executeQuery();
 
 
@@ -30,12 +30,14 @@ public class DataBase_ReserveFacilities {
                 alert.setContentText("facility is reserved, choose another faculty");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTime,Gender) VALUES (?,?,?,?,?) ");
-                psInsert.setString(1, facilityName);
-                psInsert.setString(2, String.valueOf(ReservationDate));
-                psInsert.setString(3, facilityLocation);
-                psInsert.setString(4, reservingTime);
-                psInsert.setString(5, gender);
+                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (RoomNumber, ReservationType, BuildingNumber,ReservationDate, ReservationTime, Gender,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
+                psInsert.setString(1, RoomNumber);
+                psInsert.setString(2, ReservationType);
+                psInsert.setString(3, BuildingNumber);
+                psInsert.setString(4, String.valueOf(ReservationDate));
+                psInsert.setString(5, ReservationTime);
+                psInsert.setString(6, Gender);
+                psInsert.setString(7, ExtraDetails);
 
                 psInsert.executeUpdate();
 
@@ -79,4 +81,3 @@ public class DataBase_ReserveFacilities {
 
     }
 }
-

@@ -49,7 +49,6 @@ public class Actions implements Initializable {
         ToggleGroup toggleGroup = new ToggleGroup();
         fMale_option.setToggleGroup(toggleGroup);
         fFemale_option.setToggleGroup(toggleGroup);
-
         fMale_option.setSelected(true);
 
         String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
@@ -73,6 +72,7 @@ public class Actions implements Initializable {
                     alert.show();
                 }
             }
+
 
         });
         Facility_Return.setOnAction(new EventHandler<ActionEvent>() {
