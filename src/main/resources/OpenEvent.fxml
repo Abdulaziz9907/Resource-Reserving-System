@@ -1,45 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.RunApp">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpenEvent.OpenEvent">
    <children>
-      <Pane layoutX="14.0" prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <DatePicker layoutX="312.0" layoutY="18.0" prefHeight="36.0" prefWidth="163.0" />
-            <Label layoutX="159.0" layoutY="18.0" prefHeight="36.0" prefWidth="65.0" text="Select Date">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Label>
-            <SplitMenuButton layoutX="312.0" layoutY="72.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="163.0" text="Select Time">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </SplitMenuButton>
-            <Label layoutX="159.0" layoutY="72.0" prefHeight="36.0" prefWidth="65.0" text="Select time">
-               <font>
-                  <Font name="System Bold" size="11.0" />
-               </font>
-            </Label>
-            <TableView layoutX="159.0" layoutY="127.0" prefHeight="251.0" prefWidth="316.0">
-              <columns>
-                <TableColumn text="Facility" />
-                <TableColumn prefWidth="233.0" text="Details" />
-              </columns>
-            </TableView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="418.0" layoutX="-17.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
-            <Label layoutX="14.0" layoutY="-6.0" prefHeight="48.0" prefWidth="149.0" text="Open Event" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Button layoutX="14.0" layoutY="366.0" mnemonicParsing="false" text="Return" />
-         </children>
-      </Pane>
+      <BorderPane layoutX="-1.0" prefHeight="404.0" prefWidth="600.0">
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="415.0" fitWidth="200.0" layoutY="-2.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/green_background.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="7.0" layoutY="15.0" prefHeight="30.0" prefWidth="184.0" text="Open Event" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <textFill>
+                        <RadialGradient centerX="0.49723756906077343" centerY="0.5379146919431279" radius="0.5">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </RadialGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="15.0" layoutY="68.0" text="Facility" />
+                  <Label layoutX="15.0" layoutY="148.0" text="Event Date" />
+                  <DatePicker fx:id="eventDate" layoutX="153.0" layoutY="142.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="187.0" text="Event Time" />
+                  <TextField fx:id="eventTime" layoutX="154.0" layoutY="181.0" prefHeight="25.0" prefWidth="148.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Button layoutX="117.0" layoutY="286.0" mnemonicParsing="false" onAction="#returnScene" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE" />
+                  <Button layoutX="233.0" layoutY="286.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #00573F;" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <ChoiceBox fx:id="facilityChoices" layoutX="157.0" layoutY="64.0" prefHeight="26.0" prefWidth="141.0" />
+                  <Label layoutX="15.0" layoutY="109.0" text="Number of Participants" />
+                  <TextField fx:id="nOfParticipants" layoutX="154.0" layoutY="104.0" prefHeight="25.0" prefWidth="148.0" promptText="Enter number" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="224.0" text="Duration" />
+                  <TextField fx:id="eventDuration" layoutX="154.0" layoutY="219.0" prefHeight="25.0" prefWidth="148.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
    </children>
-</Pane>
+</AnchorPane>
