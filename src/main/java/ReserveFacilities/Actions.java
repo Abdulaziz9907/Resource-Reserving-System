@@ -74,7 +74,6 @@ public class Actions implements Initializable {
                 }
             }
 
-
         });
         Facility_Return.setOnAction(new EventHandler<ActionEvent>() {
             @Override
