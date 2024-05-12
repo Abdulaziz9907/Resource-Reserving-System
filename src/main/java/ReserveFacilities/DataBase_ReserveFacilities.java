@@ -1,17 +1,15 @@
 package ReserveFacilities;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-
 import java.sql.*;
 import java.time.LocalDate;
-
 import static Login.DB.changeScene;
 
 
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName,String ReservationDate, String facilityLocation, String reservingTime, String gender ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTime, String gender ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -42,9 +40,7 @@ public class DataBase_ReserveFacilities {
                 psInsert.executeUpdate();
 
                 System.out.println("reservation complete");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("reservation complete");
-                alert.show();
+
             }
 
 
