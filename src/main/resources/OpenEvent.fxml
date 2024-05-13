@@ -47,8 +47,8 @@
                   <Label layoutX="15.0" layoutY="68.0" text="Facility" />
                   <Label layoutX="15.0" layoutY="148.0" text="Event Date" />
                   <DatePicker fx:id="eventDate" layoutX="153.0" layoutY="142.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="15.0" layoutY="187.0" text="Event Time" />
-                  <TextField fx:id="eventTime" layoutX="154.0" layoutY="181.0" prefHeight="25.0" prefWidth="148.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="187.0" text="Start Time 24h" />
+                  <TextField fx:id="eventStart" layoutX="154.0" layoutY="181.0" prefHeight="25.0" prefWidth="148.0" promptText="08:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                   <Button layoutX="117.0" layoutY="286.0" mnemonicParsing="false" onAction="#returnScene" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE" />
                   <Button layoutX="233.0" layoutY="286.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #00573F;" text="Confirm" textFill="WHITE">
                      <font>
@@ -57,8 +57,8 @@
                   <ChoiceBox fx:id="facilityChoices" layoutX="157.0" layoutY="64.0" prefHeight="26.0" prefWidth="141.0" />
                   <Label layoutX="15.0" layoutY="109.0" text="Number of Participants" />
                   <TextField fx:id="nOfParticipants" layoutX="154.0" layoutY="104.0" prefHeight="25.0" prefWidth="148.0" promptText="Enter number" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="15.0" layoutY="224.0" text="Duration" />
-                  <TextField fx:id="eventDuration" layoutX="154.0" layoutY="219.0" prefHeight="25.0" prefWidth="148.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="224.0" text="End Time 24h" />
+                  <TextField fx:id="eventEnd" layoutX="154.0" layoutY="219.0" prefHeight="25.0" prefWidth="148.0" promptText="18:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                </children></AnchorPane>
          </center>
       </BorderPane>

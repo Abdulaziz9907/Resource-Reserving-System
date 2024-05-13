@@ -12,8 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,11 +26,11 @@ public class OpenEvent implements Initializable {
     @FXML
     private TextField nOfParticipants;
     @FXML
-    private TextField eventTime;
+    private TextField eventStart;
     @FXML
     private DatePicker eventDate;
     @FXML
-    private TextField eventDuration;
+    private TextField eventEnd;
     private Stage stage;
 
 
@@ -64,8 +62,11 @@ public class OpenEvent implements Initializable {
     }
     public void handle(ActionEvent event){
 
-        if(facilityChoices.getValue() != null && !nOfParticipants.getText().isEmpty() && eventDate.getValue() != null && !eventTime.getText().isEmpty() && !eventDuration.getText().isEmpty()){
-            events_DB.openEvent(facilityChoices.getValue(),nOfParticipants.getText(),String.valueOf(eventDate.getValue()), eventTime.getText(), eventDuration.getText());
+        if(facilityChoices.getValue() != null && !nOfParticipants.getText().isEmpty() && eventDate.getValue() != null && !eventStart.getText().isEmpty() && !eventEnd.getText().isEmpty()){
+            events_DB.openEvent(facilityChoices.getValue(),nOfParticipants.getText(),String.valueOf(eventDate.getValue()), eventStart.getText(), eventEnd.getText());
+            System.out.println(events_DB.getIsBooked());
+            if(events_DB.getIsBooked())
+                return;
 
             Parent root = null;
             try {
