@@ -49,15 +49,17 @@ public class Actions implements Initializable {
         ToggleGroup toggleGroup = new ToggleGroup();
         fMale_option.setToggleGroup(toggleGroup);
         fFemale_option.setToggleGroup(toggleGroup);
+
         fMale_option.setSelected(true);
 
-        String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
 
         Facility_Apply.setOnAction(new EventHandler<ActionEvent>() {
 
 
             @Override
             public void handle(ActionEvent event) {
+
+                String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
                 LocalDate date = Facility_Date.getValue();
 
                 if (!Facility_Name.getText().trim().isEmpty()  && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
