@@ -15,7 +15,7 @@ public class events_DB {
         ResultSet re = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
 
             if (DB.getGender().equals("male"))
                 sql = "SELECT date, start_time, end_time FROM male_events WHERE facility = ?";

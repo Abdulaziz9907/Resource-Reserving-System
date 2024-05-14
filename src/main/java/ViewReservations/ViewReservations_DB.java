@@ -23,7 +23,7 @@ public class ViewReservations_DB {
 
         Connection connection;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM reservations");
             ResultSet rs = statement.executeQuery();
             while(rs.next()){

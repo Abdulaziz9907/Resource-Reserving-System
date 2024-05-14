@@ -19,7 +19,7 @@ public class ShowEvents_DB {
 
 
         try {
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
