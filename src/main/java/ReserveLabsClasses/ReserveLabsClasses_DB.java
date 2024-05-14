@@ -11,7 +11,7 @@ import static OpenEvent.events_DB.setIsBooked;
 
 public class ReserveLabsClasses_DB {
 
-    public static void Reserve_CL(ActionEvent event, String ReservationType, String BuildingNumber, String RoomNumber, java.sql.Date ReservationDate, String ReservationTime_S,String ReservationTime_E, String ExtraDetails){
+    public static void Reserve_CL(ActionEvent event, String ReservationType, String BuildingNumber, String RoomNumber, java.sql.Date ReservationDate,String gender, String ReservationTime_S,String ReservationTime_E, String ExtraDetails){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

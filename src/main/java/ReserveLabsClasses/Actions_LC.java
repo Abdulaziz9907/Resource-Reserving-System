@@ -63,9 +63,9 @@ public class Actions_LC implements Initializable {
         //String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
 
         // for the choice box
-        //ObservableList<String> choices = FXCollections.observableArrayList("Lab", "Class");
-        //Choice_CL.setItems(choices);
-        //Choice_CL.setValue("Lab");
+        ObservableList<String> choices = FXCollections.observableArrayList("Lab", "Class");
+        Choice_CL.setItems(choices);
+        Choice_CL.setValue("Lab");
 
         Apply_lC.setOnAction(new EventHandler<ActionEvent>() {
             @Override
