@@ -18,7 +18,6 @@ public class ShowEvents_DB {
         }
     }
     public static void registerUser(String ID, String facility, String participants, String date, String startTime, String endTime){
-        System.out.println("1");
         String sql;
         if (DB.getGender().equals("male"))
             sql = "SELECT event_id FROM male_events_reservations WHERE username = ?";
@@ -26,19 +25,15 @@ public class ShowEvents_DB {
 
 
         Connection connection = connect();
-        System.out.println("2");
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
 //            ps.setInt(1, Integer.parseInt(ID));
             ps.setString(1, DB.getUsername());
-            System.out.println("3");
 
             ResultSet rs = ps.executeQuery();
-            System.out.println("4");
 
             if(rs.next()){
                 while(true){
-                    System.out.println("5");
                     if(ID.equals(rs.getString("event_id"))){
                         System.out.println("Conflict");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -51,7 +46,6 @@ public class ShowEvents_DB {
 
 
             }}
-                System.out.println("6");
                 String[] parts = participants.split("/");
 
                 if(parts[0].equals(parts[1])){
@@ -63,11 +57,17 @@ public class ShowEvents_DB {
                 System.out.println("no conflict");
                 int incremented = Integer.parseInt(parts[0]) + 1;
                 String updated = String.valueOf(incremented) + "/" + parts[1];
-                ps = connection.prepareStatement("UPDATE `facilities`.`male_events` SET `participants_number`='"+updated+"' WHERE `idmale_events`='"+ID+"';");
+
+                if (DB.getGender().equals("male"))
+                    sql = "UPDATE `facilities`.`male_events` SET `participants_number`='"+updated+"' WHERE `idmale_events`='"+ID+"';";
+                else sql = "UPDATE `facilities`.`female_events` SET `participants_number`='"+updated+"' WHERE `idfemale_events`='"+ID+"';";
+                ps = connection.prepareStatement(sql);
                 ps.executeUpdate();
 
-
-                ps = connection.prepareStatement("INSERT INTO male_events_reservations (username, event_id)" + "VALUES (?, ?)");
+                if (DB.getGender().equals("male"))
+                    sql = "INSERT INTO male_events_reservations (username, event_id)\" + \"VALUES (?, ?)";
+                else sql = "INSERT INTO female_events_reservations (username, event_id)" + "VALUES (?, ?)";
+                ps = connection.prepareStatement(sql);
                 ps.setString(1, DB.getUsername());
                 ps.setString(2, ID);
                 ps.executeUpdate();
