@@ -1,6 +1,7 @@
 package ViewReservations;
 
 import Login.DB;
+import MainPanel.MainPanel;
 import ShowEvents.Event;
 import ShowEvents.ShowEvents_DB;
 import javafx.collections.ObservableList;
@@ -70,7 +71,9 @@ public class ViewReservations implements Initializable {
     public void handle(ActionEvent event){
         Parent root = null;
         try {
-            root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

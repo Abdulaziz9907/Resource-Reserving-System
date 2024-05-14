@@ -81,14 +81,9 @@ public class Actions_LC implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    //root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
 
 
-                    FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource("/mainPanel.fxml"));
-                    root = fxmlLoader.load();
-
-                    MainPanel mainPanel = fxmlLoader.getController();
-                    mainPanel.userInfo(DB.getUsername());
+                    root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setTitle("Log in");

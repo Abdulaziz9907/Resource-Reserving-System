@@ -20,7 +20,7 @@ public class ReserveLabsClasses_DB {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM reservations WHERE reservation = ?");
 
             psCheckUserExists.setString(1, ReservationType);
@@ -31,13 +31,13 @@ public class ReserveLabsClasses_DB {
             if(resultSet.isBeforeFirst()){
                 while(resultSet.next()) {
 
-                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
-                        if(resultSet.getString("ReservationTimeStart").equals(ReservationTime_S)){
+                    if(resultSet.getString("date").equals(ReservationDate)){
+                        if(resultSet.getString("start_time").equals(ReservationTime_S)){
                             giveAlert();
                             return;
                         }
-                        if((Integer.parseInt(ReservationTime_S.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_S.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))
-                                || (Integer.parseInt(ReservationTime_E.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_E.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))){
+                        if((Integer.parseInt(ReservationTime_S.substring(0,2)) < Integer.parseInt(resultSet.getString("end_time").substring(0,2)) && Integer.parseInt(ReservationTime_S.substring(0,2)) > Integer.parseInt(resultSet.getString("start_time").substring(0,2)))
+                                || (Integer.parseInt(ReservationTime_E.substring(0,2)) < Integer.parseInt(resultSet.getString("end_time").substring(0,2)) && Integer.parseInt(ReservationTime_E.substring(0,2)) > Integer.parseInt(resultSet.getString("start_time").substring(0,2)))){
                             giveAlert();
                             setIsBooked(true);
                             return;

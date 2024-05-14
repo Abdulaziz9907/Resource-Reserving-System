@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,8 +37,8 @@ public class MainPanel implements Initializable {
     private Button ReserveFacilities_Button;
     @FXML
     private Button ShowEvents_button;
-    @FXML
-    private Text name_text;
+
+    private String gender;
 
 
 
@@ -90,6 +91,8 @@ public class MainPanel implements Initializable {
                 @Override
                 public void handle(ActionEvent event) {
 
+                    if(String.valueOf(DB.getUsername()).equals("admin")){
+
                     try {
                         root = FXMLLoader.load(getClass().getResource("/ViewReservations.fxml"));
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -102,6 +105,25 @@ public class MainPanel implements Initializable {
                     }
 
                 }
+
+                else {
+
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Only admin can access this service");
+                        alert.show();
+                    }
+
+
+
+                }
+
+
+
+
+
+
+
+
             });
 
         ReserveLabsClasses_button.setOnAction(new EventHandler<ActionEvent>() {
@@ -165,21 +187,10 @@ public class MainPanel implements Initializable {
 
     }
 
-
-
-    public void userInfo(String username){
-
-        name_text.setText(("Welcome "+username));
-
-        name_text.setTranslateX(-300);
-
-        TranslateTransition transition3 = new TranslateTransition(Duration.seconds(1), name_text);
-        transition3.setToX(0);
-
-        transition3.setInterpolator(Interpolator.SPLINE(0.25, 0.1, 0.25, 1));
-
-        transition3.play();
-
+    public void info(String  gender){
+        this.gender=gender;
     }
+
+
 
 }

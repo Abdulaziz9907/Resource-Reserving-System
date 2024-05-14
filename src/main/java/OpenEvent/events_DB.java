@@ -1,6 +1,7 @@
 package OpenEvent;
 
 import Login.DB;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
@@ -17,7 +18,9 @@ public class events_DB {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
 
-            if (DB.getGender().equals("male"))
+
+
+            if (String.valueOf(DB.getGender()).equals("male"))
                 sql = "SELECT date, start_time, end_time FROM male_events WHERE facility = ?";
             else sql = "SELECT date, start_time, end_time FROM female_events WHERE facility = ?";
 

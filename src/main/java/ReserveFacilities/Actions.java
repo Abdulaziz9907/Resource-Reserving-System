@@ -81,11 +81,7 @@ public class Actions implements Initializable {
                 try {
                     //root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
 
-                    FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource("/mainPanel.fxml"));
-                    root = fxmlLoader.load();
-
-                    MainPanel mainPanel = fxmlLoader.getController();
-                    mainPanel.userInfo(DB.getUsername());
+                    root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
 
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,5 +1,6 @@
 package Login;
 import MainPanel.MainPanel;
+import ShowEvents.ShowEvents_DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,8 +29,10 @@ public class DB {
                 FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource(fxmlFile));
                 root = fxmlLoader.load();
 
-                MainPanel mainPanel = fxmlLoader.getController();
-                mainPanel.userInfo(username);
+                MainPanel mainPanel=fxmlLoader.getController();
+                mainPanel.info(gender);
+
+
 
             } catch (IOException e) {
                 e.printStackTrace();

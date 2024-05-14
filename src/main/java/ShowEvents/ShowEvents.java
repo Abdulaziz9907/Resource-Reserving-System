@@ -1,6 +1,7 @@
 package ShowEvents;
 
 import Login.DB;
+import MainPanel.MainPanel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,7 +90,7 @@ public class ShowEvents implements Initializable {
         }
     }
     public void cancel(ActionEvent event){
-        if(!DB.getRole().equals("admin")){
+        if(!String.valueOf(DB.getRole()).equals("admin")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Only Admin is Allowed to Cancel");
             alert.show();
@@ -107,7 +108,8 @@ public class ShowEvents implements Initializable {
     public void handle(ActionEvent event){
         Parent root = null;
         try {
-            root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

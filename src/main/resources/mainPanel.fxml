@@ -19,11 +19,7 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="Register_button" layoutX="98.0" layoutY="178.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="Register" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="14.0" />
-                     </font></Button>
-                  <Button fx:id="ReserveFacilities_Button" layoutX="98.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="Reserve Facilities" textFill="WHITE">
+                  <Button fx:id="ReserveFacilities_Button" layoutX="98.0" layoutY="260.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="Reserve Facilities" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
@@ -31,11 +27,11 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="ReserveLabsClasses_button" layoutX="98.0" layoutY="258.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="Reserve Labs or Classes" textFill="WHITE">
+                  <Button fx:id="ReserveLabsClasses_button" layoutX="98.0" layoutY="220.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="Reserve Labs or Classes" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="ViewReservation_button" layoutX="98.0" layoutY="219.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="View Reservation" textFill="WHITE">
+                  <Button fx:id="ViewReservation_button" layoutX="98.0" layoutY="181.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="207.0" style="-fx-background-color: #00573f;" text="View Reservation" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
@@ -55,11 +51,6 @@
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </Label>
-                  <Text fx:id="name_text" fill="WHITE" layoutX="5.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name ">
-                     <font>
-                        <Font name="Arial Black" size="16.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
          </children>

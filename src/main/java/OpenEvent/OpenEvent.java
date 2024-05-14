@@ -1,6 +1,7 @@
 package OpenEvent;
 
 import Login.DB;
+import MainPanel.MainPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +48,7 @@ public class OpenEvent implements Initializable {
             );
             Statement statement = connection.createStatement();
             ResultSet resultSet;
-            if(DB.getGender().equals("male")) {
+            if(String.valueOf(DB.getGender()).equals("male")) {
                 resultSet = statement.executeQuery("SELECT name FROM facilities.facility_table");
             }
             else{resultSet = statement.executeQuery("SELECT name FROM facilities.female_facility_table");}
@@ -71,6 +72,7 @@ public class OpenEvent implements Initializable {
             Parent root = null;
             try {
                 root = FXMLLoader.load(DB.class.getResource("/OpenEventConfirmed.fxml"));
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -89,7 +91,11 @@ public class OpenEvent implements Initializable {
     public void returnScene(ActionEvent event){
         Parent root = null;
         try {
-            root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+
+            root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
+
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

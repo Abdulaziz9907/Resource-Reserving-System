@@ -20,7 +20,7 @@ public class DataBase_ReserveFacilities {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM reservations WHERE reservation = ?");
             psCheckUserExists.setString(1, facilityName);
             resultSet = psCheckUserExists.executeQuery();
@@ -29,13 +29,13 @@ public class DataBase_ReserveFacilities {
             if(resultSet.isBeforeFirst()){
                 while(resultSet.next()) {
 
-                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
-                        if(resultSet.getString("ReservatingTimeStart").equals(reservingTimeS)){
+                    if(resultSet.getString("date").equals(ReservationDate)){
+                        if(resultSet.getString("start_time").equals(reservingTimeS)){
                             giveAlert();
                             return;
                         }
-                        if((Integer.parseInt(reservingTimeS.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservatingTimeEnd").substring(0,2)) && Integer.parseInt(reservingTimeS.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservatingTimeStart").substring(0,2)))
-                                || (Integer.parseInt(reservingTimeE.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservatingTimeEnd").substring(0,2)) && Integer.parseInt(reservingTimeE.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservatingTimeStart").substring(0,2)))){
+                        if((Integer.parseInt(reservingTimeS.substring(0,2)) < Integer.parseInt(resultSet.getString("end_time").substring(0,2)) && Integer.parseInt(reservingTimeS.substring(0,2)) > Integer.parseInt(resultSet.getString("start_time").substring(0,2)))
+                                || (Integer.parseInt(reservingTimeE.substring(0,2)) < Integer.parseInt(resultSet.getString("end_time").substring(0,2)) && Integer.parseInt(reservingTimeE.substring(0,2)) > Integer.parseInt(resultSet.getString("start_time").substring(0,2)))){
                             giveAlert();
                             setIsBooked(true);
                             return;
