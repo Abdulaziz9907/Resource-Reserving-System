@@ -21,6 +21,10 @@ module java {
     opens ReserveFacilities to javafx.fxml;
     exports ReserveFacilities;
 
+    opens ShowEvents to javafx.fxml;
+    exports ShowEvents;
+
+
 
 }
 

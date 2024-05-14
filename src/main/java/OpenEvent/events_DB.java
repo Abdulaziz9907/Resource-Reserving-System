@@ -54,7 +54,7 @@ public class events_DB {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, facility);
-            statement.setInt(2, Integer.parseInt(participants));
+            statement.setString(2, "0/"+participants);
             statement.setString(3, date);
             statement.setString(4, startTime);
             statement.setString(5, endTime);

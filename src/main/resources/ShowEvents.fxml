@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ShowEvents.ShowEvents">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="159.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="400.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="179.0" />
+                <Button layoutX="8.0" layoutY="369.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: #ffffff;" text="Return" />
+            <Label layoutX="-2.0" layoutY="4.0" prefHeight="42.0" prefWidth="183.0" text="Show Events">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.17061611374407581" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="95.0" layoutY="369.0" mnemonicParsing="false" onAction="#register" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: #ffffff;" text="Register" />
+            <Label layoutX="7.0" layoutY="60.0" prefHeight="42.0" prefWidth="166.0" text="Choose Event To" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="7.0" layoutY="81.0" prefHeight="42.0" prefWidth="166.0" text="Register" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtID" layoutX="15.0" layoutY="130.0" promptText="ID" />
+            <TextField fx:id="txtFacility" layoutX="15.0" layoutY="165.0" promptText="Facility" />
+            <TextField fx:id="txtParticipants" layoutX="15.0" layoutY="200.0" promptText="Participants" />
+            <TextField fx:id="txtDate" layoutX="15.0" layoutY="235.0" promptText="date" />
+            <TextField fx:id="txtStart" layoutX="15.0" layoutY="270.0" promptText="Start Time" />
+            <TextField fx:id="txtEnd" layoutX="15.0" layoutY="305.0" promptText="End Time" />
+            <Label layoutX="43.0" layoutY="115.0" text="*DONT CHANGE*" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <TableView fx:id="eventsTable" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="475.0" BorderPane.alignment="CENTER">
+            <columns>
+            <TableColumn fx:id="colID" prefWidth="45.0" text="ID" />
+                <TableColumn fx:id="colFacility" prefWidth="105.0" text="Facility" />
+                <TableColumn fx:id="colParticipants" text="Participants" />
+            <TableColumn fx:id="colDate" prefWidth="61.0" text="Date" />
+            <TableColumn fx:id="colStartTime" prefWidth="63.0" text="Start Time" />
+            <TableColumn fx:id="colEndTime" prefWidth="75.0" text="End Time" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

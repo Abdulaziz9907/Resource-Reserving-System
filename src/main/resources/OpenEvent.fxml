@@ -19,7 +19,7 @@
                   </ImageView>
                   <Label layoutX="7.0" layoutY="15.0" prefHeight="30.0" prefWidth="184.0" text="Open Event" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="27.0" />
                      </font>
                      <textFill>
                         <RadialGradient centerX="0.49723756906077343" centerY="0.5379146919431279" radius="0.5">

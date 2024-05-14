@@ -25,6 +25,8 @@ public class MainPanel implements Initializable {
     private Button exit_button;
     @FXML
     private Button ReserveFacilities_Button;
+    @FXML
+    private Button ShowEvents_button;
 
     Parent root = null;
 
@@ -50,6 +52,25 @@ public class MainPanel implements Initializable {
 
 
             });
+        ShowEvents_button.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/ShowEvents.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setTitle("Open Event");
+                    stage.setScene(new Scene(root, 600, 400));
+                    stage.show();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+
+        });
 
             ViewReservation_button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
