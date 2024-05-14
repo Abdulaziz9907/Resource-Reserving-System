@@ -69,7 +69,6 @@ public class Actions_LC implements Initializable {
                     String details = selectedChoice+"-"+bldgNum.getText()+"-"+roomNum.getText();
 
                     ReserveLabsClasses_DB.Reserve_CL(event, details, sqlDate,gender, lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
-                    confirmationM.setText("The facility has been assigned successfully");
                 } else {
                     System.out.println("Fill all information");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
