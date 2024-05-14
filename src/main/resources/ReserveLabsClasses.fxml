@@ -95,27 +95,22 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Label>
-                  <TextArea fx:id="Details_lC" layoutX="181.0" layoutY="236.0" prefHeight="136.0" prefWidth="168.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;">
+                  <TextArea fx:id="Details_lC" layoutX="172.0" layoutY="231.0" prefHeight="136.0" prefWidth="168.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;">
                      <font>
                         <Font size="13.0" />
                      </font></TextArea>
-                  <Label layoutX="19.0" layoutY="274.0" prefHeight="30.0" prefWidth="154.0" text="Reason of Reservation">
+                  <Label layoutX="11.0" layoutY="261.0" prefHeight="30.0" prefWidth="154.0" text="Reason of Reservation">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Label>
-                  <Button fx:id="Apply_lC" layoutX="313.0" layoutY="378.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
+                  <Button fx:id="Apply_lC" layoutX="309.0" layoutY="375.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="Return_lC" layoutX="52.0" layoutY="378.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
+                  <Button fx:id="Return_lC" layoutX="52.0" layoutY="375.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Label fx:id="confirmationM" layoutX="71.0" layoutY="9.0" prefHeight="19.0" prefWidth="277.0" textFill="#41d307">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="36.0" layoutY="92.0" prefHeight="17.0" prefWidth="102.0" text="Room Number">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />

@@ -1,5 +1,6 @@
 package ReserveFacilities;
 import Login.DB;
+import MainPanel.MainPanel;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -76,7 +77,15 @@ public class Actions implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
+                    //root = FXMLLoader.load(getClass().getResource("/mainPanel.fxml"));
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource("/mainPanel.fxml"));
+                    root = fxmlLoader.load();
+
+                    MainPanel mainPanel = fxmlLoader.getController();
+                    mainPanel.userInfo(DB.getUsername());
+
+
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setTitle("Log in");
                     stage.setScene(new Scene(root, 600, 400));

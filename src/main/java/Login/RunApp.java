@@ -22,9 +22,6 @@ public class RunApp extends Application {
         stage.setResizable(false);
         stage.getIcons().add(new Image("/rss.png"));
 
-
-
-
         stage.show();
 
     }

@@ -1,5 +1,6 @@
 package Login;
 
+import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,6 +40,8 @@ public class ctrl implements Initializable {
     @FXML
     private ImageView arrowImageView1;
 
+
+
     private TranslateTransition translateTransition;
 
     @Override
@@ -57,6 +60,7 @@ public class ctrl implements Initializable {
             public void handle(ActionEvent event) {
                 DB.changeScene(event, "/SignUp.fxml", "Sign up", null, null, null);
             }
+
         });
 
 
@@ -112,12 +116,21 @@ public class ctrl implements Initializable {
         });
 
 
-        promote_text.setTranslateX(-200);
+        promote_text.setTranslateX(-300);
 
         TranslateTransition transition3 = new TranslateTransition(Duration.seconds(1), promote_text);
         transition3.setToX(0);
 
+        transition3.setInterpolator(Interpolator.SPLINE(0.25, 0.1, 0.25, 1));
+
         transition3.play();
+
+
+
+
+
+
+
 
     }
 

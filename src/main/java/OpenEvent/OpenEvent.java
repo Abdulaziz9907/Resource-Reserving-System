@@ -43,7 +43,7 @@ public class OpenEvent implements Initializable {
             Connection connection = DriverManager.getConnection(
                     "jdbc:mysql://127.0.0.1:3306/facilities",
                     "root",
-                    "123123"
+                    "12345678"
             );
             Statement statement = connection.createStatement();
             ResultSet resultSet;

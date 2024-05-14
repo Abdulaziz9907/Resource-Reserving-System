@@ -29,7 +29,7 @@ public class ShowEvents_DB {
         Connection connection;
         String sql;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
             if (DB.getGender().equals("male"))
                 sql = "DELETE FROM male_events WHERE idmale_events ="+ID;
             else sql = "DELETE FROM female_events WHERE idfemale_events ="+ID;

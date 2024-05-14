@@ -1,5 +1,6 @@
 package Login;
 
+import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -36,6 +38,10 @@ public class SignUpCtrl implements Initializable {
 
     @FXML
     private ImageView arrowImageView3;
+
+    @FXML
+    private Text sgup_text;
+
 
 
 
@@ -135,6 +141,15 @@ public class SignUpCtrl implements Initializable {
 
 
         });
+
+        sgup_text.setTranslateX(-300);
+
+        TranslateTransition transition3 = new TranslateTransition(Duration.seconds(1), sgup_text);
+        transition3.setToX(0);
+
+        transition3.setInterpolator(Interpolator.SPLINE(0.25, 0.1, 0.25, 1));
+
+        transition3.play();
 
 
 

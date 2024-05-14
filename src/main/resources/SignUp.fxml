@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
@@ -18,74 +17,55 @@
                   <Image url="@images/illustration2.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="arrowImageView2" fitHeight="30.0" fitWidth="27.0" layoutX="309.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="arrowImageView2" fitHeight="30.0" fitWidth="27.0" layoutX="325.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/arrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="arrowImageView3" fitHeight="30.0" fitWidth="27.0" layoutX="318.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="arrowImageView3" fitHeight="30.0" fitWidth="27.0" layoutX="336.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/arrow.png" />
                </image>
             </ImageView>
-            <TextField fx:id="username_tf" layoutX="198.0" layoutY="56.0" prefHeight="27.0" prefWidth="149.0" promptText="Enter Username" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px; -fx-text-fill: #00573F;">
+            <TextField fx:id="username_tf" layoutX="198.0" layoutY="54.0" prefHeight="27.0" prefWidth="165.0" promptText="Enter Username" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px; -fx-text-fill: #00573F;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></TextField>
-            <Label layoutX="174.0" layoutY="161.0" text="Gender:">
+            <Label layoutX="187.0" layoutY="158.0" text="Gender:">
+               <font>
+
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="194.0" layoutY="188.0" text="Role:">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></Label>
-            <Label layoutX="181.0" layoutY="191.0" text="Role:">
-               <font>
-                  <Font name="Arial Rounded MT Bold" size="14.0" />
-               </font></Label>
-            <Button fx:id="login_button" layoutX="191.0" layoutY="270.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #00573F;" text="Return to Log In" textFill="WHITE">
+            <Button fx:id="login_button" layoutX="209.0" layoutY="260.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #00573F;" text="Return to Log In" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Button>
-            <RadioButton fx:id="roleStudent" layoutX="242.0" layoutY="193.0" mnemonicParsing="false" text="student">
+            <RadioButton fx:id="roleStudent" layoutX="255.0" layoutY="190.0" mnemonicParsing="false" text="student">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
-            <RadioButton fx:id="genderF" layoutX="314.0" layoutY="163.0" mnemonicParsing="false" text="female">
+            <RadioButton fx:id="genderF" layoutX="327.0" layoutY="160.0" mnemonicParsing="false" text="female">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
-            <RadioButton fx:id="genderM" layoutX="243.0" layoutY="163.0" mnemonicParsing="false" text="male">
+            <RadioButton fx:id="genderM" layoutX="256.0" layoutY="160.0" mnemonicParsing="false" text="male">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
-            <RadioButton fx:id="roleFacility" layoutX="313.0" layoutY="193.0" mnemonicParsing="false" text="facility">
+            <RadioButton fx:id="roleFacility" layoutX="326.0" layoutY="190.0" mnemonicParsing="false" text="facility">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </RadioButton>
-            <Button fx:id="signup_button" layoutX="201.0" layoutY="229.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
+            <Button fx:id="signup_button" layoutX="219.0" layoutY="219.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Button>
-            <Label layoutX="-112.0" layoutY="24.0" prefHeight="64.0" prefWidth="149.0" text="Set Up Your ">
-               <font>
-                  <Font name="Arial Black" size="21.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.4075829383886256" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
             <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="160.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/person.png" />
@@ -95,32 +75,17 @@
                   <Image url="@images/key.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="pass_tf" layoutX="196.0" layoutY="107.0" prefHeight="27.0" prefWidth="149.0" promptText="Enter password" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px; -fx-text-fill: #00573F;">
+            <PasswordField fx:id="pass_tf" layoutX="196.0" layoutY="109.0" prefHeight="27.0" prefWidth="165.0" promptText="Enter Password" style="-fx-border-color: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px; -fx-text-fill: #00573F;">
                <font>
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </PasswordField>
-            <Label layoutX="-90.0" layoutY="73.0" text="Account">
+
+            <Text fx:id="sgup_text" fill="WHITE" layoutX="-134.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Up Your Account " wrappingWidth="167.365234375">
                <font>
                   <Font name="Arial Black" size="21.0" />
                </font>
-               <textFill>
-                  <LinearGradient endX="0.4075829383886256" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Label>
+            </Text>
          </children>
       </Pane>
    </children>

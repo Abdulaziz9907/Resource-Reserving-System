@@ -1,5 +1,7 @@
 package MainPanel;
 import Login.DB;
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,8 +12,12 @@ import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,9 +36,9 @@ public class MainPanel implements Initializable {
     private Button ReserveFacilities_Button;
     @FXML
     private Button ShowEvents_button;
-
     @FXML
-    private Label name_text;
+    private Text name_text;
+
 
 
 
@@ -156,6 +162,7 @@ public class MainPanel implements Initializable {
         });
 
 
+
     }
 
 
@@ -163,6 +170,15 @@ public class MainPanel implements Initializable {
     public void userInfo(String username){
 
         name_text.setText(("Welcome "+username));
+
+        name_text.setTranslateX(-300);
+
+        TranslateTransition transition3 = new TranslateTransition(Duration.seconds(1), name_text);
+        transition3.setToX(0);
+
+        transition3.setInterpolator(Interpolator.SPLINE(0.25, 0.1, 0.25, 1));
+
+        transition3.play();
 
     }
 
