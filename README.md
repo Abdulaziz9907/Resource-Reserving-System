@@ -24,6 +24,3 @@ The Resource Reserving System is a JavaFX application designed to manage events,
 ##### 6. Run the RunApp.java file to start the application.
 ## Contributing
 Contributions to the Resource Reserving System are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or create a pull request.
-## License
-This project is licensed under the MIT License.
-

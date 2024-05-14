@@ -95,7 +95,7 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Label>
-                  <TextArea fx:id="Details_lC" layoutX="172.0" layoutY="231.0" prefHeight="136.0" prefWidth="168.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;">
+                  <TextArea fx:id="Details_lC" layoutX="172.0" layoutY="231.0" prefHeight="120.0" prefWidth="168.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;">
                      <font>
                         <Font size="13.0" />
                      </font></TextArea>
@@ -103,11 +103,11 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Label>
-                  <Button fx:id="Apply_lC" layoutX="309.0" layoutY="375.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
+                  <Button fx:id="Apply_lC" layoutX="309.0" layoutY="367.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="Return_lC" layoutX="52.0" layoutY="375.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
+                  <Button fx:id="Return_lC" layoutX="55.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
