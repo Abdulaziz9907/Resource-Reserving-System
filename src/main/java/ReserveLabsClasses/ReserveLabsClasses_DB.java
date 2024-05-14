@@ -21,38 +21,33 @@ public class ReserveLabsClasses_DB {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE ReservationType = ?");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE ReservationType = ? AND BuildingNumber = ? AND RoomNumber = ? AND ReservationDate = ?");
+
             psCheckUserExists.setString(1, ReservationType);
+            psCheckUserExists.setString(2, BuildingNumber);
+            psCheckUserExists.setString(3, RoomNumber);
+            psCheckUserExists.setString(4, String.valueOf(ReservationDate));
+
             resultSet = psCheckUserExists.executeQuery();
 
 
             if(resultSet.isBeforeFirst()){
-                while(resultSet.next()) {
 
-                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
-                        if(resultSet.getString("ReservationTimeStart").equals(ReservationTime_S)){
-                            giveAlert();
-                            return;
-                        }
-                        if((Integer.parseInt(ReservationTime_S.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_S.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))
-                                || (Integer.parseInt(ReservationTime_E.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_E.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))){
-                            giveAlert();
-                            setIsBooked(true);
-                            return;
-                        }
+                System.out.println("this "+ReservationType+"is reserved");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("this "+ReservationType+" is reserved");
+                alert.show();
 
-                    }
-                }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate,gender, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?,?) ");
+                setIsBooked(true);
+                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
                 psInsert.setString(1, ReservationType);
                 psInsert.setString(2, BuildingNumber);
                 psInsert.setString(3, RoomNumber);
                 psInsert.setString(4, String.valueOf(ReservationDate));
-                psInsert.setString(5, gender);
-                psInsert.setString(6, ReservationTime_S);
-                psInsert.setString(7, ReservationTime_E);
-                psInsert.setString(8, ExtraDetails);
+                psInsert.setString(5, ReservationTime_S);
+                psInsert.setString(6, ReservationTime_E);
+                psInsert.setString(7, ExtraDetails);
 
                 psInsert.executeUpdate();
 
