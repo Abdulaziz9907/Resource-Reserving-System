@@ -11,7 +11,7 @@ import static OpenEvent.events_DB.setIsBooked;
 
 public class ReserveLabsClasses_DB {
 
-    public static void Reserve_CL(ActionEvent event, String ReservationType, String BuildingNumber, String RoomNumber, java.sql.Date ReservationDate,String gender, String ReservationTime_S,String ReservationTime_E, String ExtraDetails){
+    public static void Reserve_CL(ActionEvent event, String ReservationType, java.sql.Date ReservationDate,String gender, String ReservationTime_S,String ReservationTime_E, String ExtraDetails){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -20,13 +20,10 @@ public class ReserveLabsClasses_DB {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE ReservationType = ? AND BuildingNumber = ? AND RoomNumber = ? AND ReservationDate = ?");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservations WHERE reservation = ?");
 
             psCheckUserExists.setString(1, ReservationType);
-            psCheckUserExists.setString(2, BuildingNumber);
-            psCheckUserExists.setString(3, RoomNumber);
-            psCheckUserExists.setString(4, String.valueOf(ReservationDate));
 
             resultSet = psCheckUserExists.executeQuery();
 
@@ -50,15 +47,13 @@ public class ReserveLabsClasses_DB {
                 }
             } else {
                 setIsBooked(true);
-                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate,gender, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO reservations (reservation, date, start_time, end_time, gender, details) VALUES (?,?,?,?,?,?) ");
                 psInsert.setString(1, ReservationType);
-                psInsert.setString(2, BuildingNumber);
-                psInsert.setString(3, RoomNumber);
-                psInsert.setString(4, String.valueOf(ReservationDate));
+                psInsert.setString(2, String.valueOf(ReservationDate));
+                psInsert.setString(3, ReservationTime_S);
+                psInsert.setString(4, ReservationTime_E);
                 psInsert.setString(5, gender);
-                psInsert.setString(6, ReservationTime_S);
-                psInsert.setString(7, ReservationTime_E);
-                psInsert.setString(8, ExtraDetails);
+                psInsert.setString(6, ExtraDetails);
 
                 psInsert.executeUpdate();
 
