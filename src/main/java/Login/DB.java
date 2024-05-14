@@ -42,7 +42,7 @@ public class DB {
 
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE userName = ?");
             psCheckUserExists.setString(1, username);
             resultSet = psCheckUserExists.executeQuery();
@@ -115,7 +115,7 @@ public class DB {
 
         try {
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "123123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
             preparedStatement = connection.prepareStatement("SELECT password, gender, role FROM users WHERE userName = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();

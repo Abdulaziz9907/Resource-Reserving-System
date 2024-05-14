@@ -6,10 +6,12 @@ import javafx.scene.control.ChoiceBox;
 import java.sql.*;
 import java.time.LocalDate;
 import static Login.DB.changeScene;
+import static OpenEvent.events_DB.giveAlert;
+import static OpenEvent.events_DB.setIsBooked;
 
 public class ReserveLabsClasses_DB {
 
-    public static void Reserve_CL(ActionEvent event, String RoomNumber, String ReservationType,String BuildingNumber , java.sql.Date ReservationDate, String ReservationTime, String Gender, String ExtraDetails){
+    public static void Reserve_CL(ActionEvent event, String ReservationType, String BuildingNumber, String RoomNumber, java.sql.Date ReservationDate, String ReservationTime_S,String ReservationTime_E, String ExtraDetails){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -19,24 +21,36 @@ public class ReserveLabsClasses_DB {
 
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE RoomNumber = ?");
-            psCheckUserExists.setString(1, RoomNumber);
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservelabsclasses WHERE ReservationType = ?");
+            psCheckUserExists.setString(1, ReservationType);
             resultSet = psCheckUserExists.executeQuery();
 
 
-            if (resultSet.isBeforeFirst()) {
-                System.out.println("facility is reserved, choose another faculty");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("facility is reserved, choose another faculty");
-                alert.show();
+            if(resultSet.isBeforeFirst()){
+                while(resultSet.next()) {
+
+                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
+                        if(resultSet.getString("ReservationTimeStart").equals(ReservationTime_S)){
+                            giveAlert();
+                            return;
+                        }
+                        if((Integer.parseInt(ReservationTime_S.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_S.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))
+                                || (Integer.parseInt(ReservationTime_E.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_E.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))){
+                            giveAlert();
+                            setIsBooked(true);
+                            return;
+                        }
+
+                    }
+                }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (RoomNumber, ReservationType, BuildingNumber,ReservationDate, ReservationTime, Gender,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
-                psInsert.setString(1, RoomNumber);
-                psInsert.setString(2, ReservationType);
-                psInsert.setString(3, BuildingNumber);
+                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
+                psInsert.setString(1, ReservationType);
+                psInsert.setString(2, BuildingNumber);
+                psInsert.setString(3, RoomNumber);
                 psInsert.setString(4, String.valueOf(ReservationDate));
-                psInsert.setString(5, ReservationTime);
-                psInsert.setString(6, Gender);
+                psInsert.setString(5, ReservationTime_S);
+                psInsert.setString(6, ReservationTime_E);
                 psInsert.setString(7, ExtraDetails);
 
                 psInsert.executeUpdate();
@@ -78,6 +92,5 @@ public class ReserveLabsClasses_DB {
             }
 
         }
-
     }
 }

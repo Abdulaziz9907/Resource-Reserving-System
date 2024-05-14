@@ -33,7 +33,9 @@ public class Actions_LC implements Initializable {
     @FXML
     private  DatePicker lC_Date;
     @FXML
-    private TextField lC_Time;
+    private TextField lC_Time_Start;
+    @FXML
+    private TextField lC_Time_End;
     @FXML
     private RadioButton fMale_lC;
     @FXML
@@ -52,28 +54,28 @@ public class Actions_LC implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ToggleGroup toggleGroup = new ToggleGroup();
-        fMale_lC.setToggleGroup(toggleGroup);
-        fFemale_lC.setToggleGroup(toggleGroup);
-        fMale_lC.setSelected(true);
+        //ToggleGroup toggleGroup = new ToggleGroup();
+        //fMale_lC.setToggleGroup(toggleGroup);
+        //fFemale_lC.setToggleGroup(toggleGroup);
+        //fMale_lC.setSelected(true);
 
 
-        String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
+        //String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
 
         // for the choice box
-        ObservableList<String> choices = FXCollections.observableArrayList("Lab", "Class");
-        Choice_CL.setItems(choices);
-        Choice_CL.setValue("Lab");
+        //ObservableList<String> choices = FXCollections.observableArrayList("Lab", "Class");
+        //Choice_CL.setItems(choices);
+        //Choice_CL.setValue("Lab");
 
         Apply_lC.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 LocalDate date = lC_Date.getValue();
 
-                if (Choice_CL.getValue() != null && !lC_Time.getText().trim().isEmpty() && !roomNum.getText().trim().isEmpty() && !bldgNum.getText().trim().isEmpty() ) {
+                if (Choice_CL.getValue() != null && !lC_Time_Start.getText().trim().isEmpty() && !lC_Time_End.getText().trim().isEmpty() && !roomNum.getText().trim().isEmpty() && !bldgNum.getText().trim().isEmpty() ) {
                     java.sql.Date sqlDate = Date.valueOf(date);
                     String selectedChoice = (String) Choice_CL.getValue();
-                    ReserveLabsClasses_DB.Reserve_CL(event, roomNum.getText(),selectedChoice,bldgNum.getText(), sqlDate, lC_Time.getText(), toggleName, Details_lC.getText());
+                    ReserveLabsClasses_DB.Reserve_CL(event, selectedChoice,roomNum.getText(),bldgNum.getText(), sqlDate, lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
 
                     confirmationM.setText("The facility has been assigned successfully");
                 } else {
