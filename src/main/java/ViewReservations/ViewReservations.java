@@ -92,9 +92,9 @@ public class ViewReservations implements Initializable {
     }
 
 
-    public void cancel(){
+    public void cancel(ActionEvent event){
         if(!txtID.getText().isEmpty() &&!txtReservation.getText().isEmpty() &&!txtgender.getText().isEmpty() &&!txtDate.getText().isEmpty() &&!txtStart.getText().isEmpty() &&!txtEnd.getText().isEmpty())
-            ViewReservations_DB.cancelReservation(txtID.getText(),txtReservation.getText(),txtgender.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
+            ViewReservations_DB.cancelReservation(event,txtID.getText(),txtReservation.getText(),txtgender.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Fill all information");

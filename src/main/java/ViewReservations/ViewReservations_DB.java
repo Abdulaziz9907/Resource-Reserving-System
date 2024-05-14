@@ -1,9 +1,16 @@
 package ViewReservations;
 
 import Login.DB;
+import OpenEvent.OpenEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
@@ -29,7 +36,7 @@ public class ViewReservations_DB {
         return list;
     }
 
-    public static void cancelReservation(String ID, String reservation, String gender, String date, String startTime, String endTime){
+    public static void cancelReservation(ActionEvent event, String ID, String reservation, String gender, String date, String startTime, String endTime){
         Connection connection;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
@@ -39,8 +46,16 @@ public class ViewReservations_DB {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setContentText("Reservation Deleted Successfully");
             alert.show();
-
-
+            Stage stage;
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
