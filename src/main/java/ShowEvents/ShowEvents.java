@@ -79,24 +79,24 @@ public class ShowEvents implements Initializable {
         txtEnd.setText(colEndTime.getCellData(index));
 
     }
-    public void register(){
+    public void register(ActionEvent event){
         if(!txtID.getText().isEmpty() &&!txtFacility.getText().isEmpty() &&!txtParticipants.getText().isEmpty() &&!txtDate.getText().isEmpty() &&!txtStart.getText().isEmpty() &&!txtEnd.getText().isEmpty())
-            ShowEvents_DB.registerUser(txtID.getText(),txtFacility.getText(),txtParticipants.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
+            ShowEvents_DB.registerUser(event,txtID.getText(),txtFacility.getText(),txtParticipants.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Fill all information");
             alert.show();
         }
     }
-    public void cancel(){
+    public void cancel(ActionEvent event){
         if(!DB.getRole().equals("admin")){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Only Admin is allowed to cancel");
+            alert.setContentText("Only Admin is Allowed to Cancel");
             alert.show();
             return;
         }
         if(!txtID.getText().isEmpty() &&!txtFacility.getText().isEmpty() &&!txtParticipants.getText().isEmpty() &&!txtDate.getText().isEmpty() &&!txtStart.getText().isEmpty() &&!txtEnd.getText().isEmpty())
-            ShowEvents_DB.cancelEvent(txtID.getText(),txtFacility.getText(),txtParticipants.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
+            ShowEvents_DB.cancelEvent(event, txtID.getText(),txtFacility.getText(),txtParticipants.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Fill all information");

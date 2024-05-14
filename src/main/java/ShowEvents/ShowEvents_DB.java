@@ -3,8 +3,15 @@ package ShowEvents;
 import Login.DB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class ShowEvents_DB {
@@ -18,7 +25,7 @@ public class ShowEvents_DB {
         }
     }
 
-    public static void cancelEvent(String ID, String facility, String participants, String date, String startTime, String endTime){
+    public static void cancelEvent(ActionEvent event, String ID, String facility, String participants, String date, String startTime, String endTime){
         Connection connection;
         String sql;
         try {
@@ -29,11 +36,25 @@ public class ShowEvents_DB {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.executeUpdate();
 
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Event Deleted Successfully");
+            alert.show();
+            Stage stage;
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public static void registerUser(String ID, String facility, String participants, String date, String startTime, String endTime){
+    public static void registerUser(ActionEvent event, String ID, String facility, String participants, String date, String startTime, String endTime){
         String sql;
         if (DB.getGender().equals("male"))
             sql = "SELECT event_id FROM male_events_reservations WHERE username = ?";
@@ -88,7 +109,19 @@ public class ShowEvents_DB {
                 ps.setString(2, ID);
                 ps.executeUpdate();
 
-
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("You are Now a Participant!");
+                alert.show();
+                Stage stage;
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(DB.class.getResource("/mainPanel.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
 
 
 
