@@ -75,7 +75,7 @@ public class Actions_LC implements Initializable {
                 if (Choice_CL.getValue() != null && !lC_Time_Start.getText().trim().isEmpty() && !lC_Time_End.getText().trim().isEmpty() && !roomNum.getText().trim().isEmpty() && !bldgNum.getText().trim().isEmpty() ) {
                     java.sql.Date sqlDate = Date.valueOf(date);
                     String selectedChoice = (String) Choice_CL.getValue();
-                    ReserveLabsClasses_DB.Reserve_CL(event, selectedChoice,roomNum.getText(),bldgNum.getText(), sqlDate, lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
+                    ReserveLabsClasses_DB.Reserve_CL(event, String.valueOf(selectedChoice),roomNum.getText(),bldgNum.getText(), sqlDate, lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
 
                     confirmationM.setText("The facility has been assigned successfully");
                 } else {
