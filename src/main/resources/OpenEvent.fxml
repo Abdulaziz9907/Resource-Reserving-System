@@ -17,25 +17,25 @@
                         <Image url="@images/green_background.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="7.0" layoutY="15.0" prefHeight="30.0" prefWidth="184.0" text="Open Event" textAlignment="CENTER">
+                  <Label layoutX="33.0" layoutY="27.0" prefHeight="31.0" prefWidth="134.0" text="Open Event" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="27.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                      <textFill>
-                        <RadialGradient centerX="0.49723756906077343" centerY="0.5379146919431279" radius="0.5">
+                        <LinearGradient endX="0.4075829383886256" endY="1.0">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                    <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                                    <Color red="1.0" green="1.0" blue="1.0" />
                                  </color>
                               </Stop>
                            </stops>
-                        </RadialGradient>
+                        </LinearGradient>
                      </textFill>
                   </Label>
                </children>
@@ -44,21 +44,39 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="15.0" layoutY="68.0" text="Facility" />
-                  <Label layoutX="15.0" layoutY="148.0" text="Event Date" />
-                  <DatePicker fx:id="eventDate" layoutX="153.0" layoutY="142.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="15.0" layoutY="187.0" text="Start Time 24h" />
-                  <TextField fx:id="eventStart" layoutX="154.0" layoutY="181.0" prefHeight="25.0" prefWidth="148.0" promptText="08:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Button layoutX="117.0" layoutY="286.0" mnemonicParsing="false" onAction="#returnScene" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE" />
-                  <Button layoutX="233.0" layoutY="286.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #00573F;" text="Confirm" textFill="WHITE">
+                  <Label layoutX="15.0" layoutY="68.0" text="Facility">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="15.0" layoutY="148.0" text="Event Date">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <DatePicker fx:id="eventDate" layoutX="186.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="187.0" text="Start Time 24h">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="eventStart" layoutX="186.0" layoutY="182.0" prefHeight="28.0" prefWidth="151.0" promptText="08:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Button layoutX="126.0" layoutY="286.0" mnemonicParsing="false" onAction="#returnScene" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <ChoiceBox fx:id="facilityChoices" layoutX="157.0" layoutY="64.0" prefHeight="26.0" prefWidth="141.0" />
-                  <Label layoutX="15.0" layoutY="109.0" text="Number of Participants" />
-                  <TextField fx:id="nOfParticipants" layoutX="154.0" layoutY="104.0" prefHeight="25.0" prefWidth="148.0" promptText="Enter number" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="15.0" layoutY="224.0" text="End Time 24h" />
-                  <TextField fx:id="eventEnd" layoutX="154.0" layoutY="219.0" prefHeight="25.0" prefWidth="148.0" promptText="18:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Button layoutX="250.0" layoutY="286.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: #00573F;" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Button>
+                  <ChoiceBox fx:id="facilityChoices" layoutX="191.0" layoutY="64.0" prefHeight="26.0" prefWidth="141.0" />
+                  <Label layoutX="15.0" layoutY="109.0" text="Number of Participants">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="nOfParticipants" layoutX="186.0" layoutY="104.0" prefHeight="28.0" prefWidth="150.0" promptText="Enter number" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="15.0" layoutY="224.0" text="End Time 24h">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="eventEnd" layoutX="186.0" layoutY="219.0" prefHeight="28.0" prefWidth="151.0" promptText="18:00" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                </children></AnchorPane>
          </center>
       </BorderPane>

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
@@ -33,11 +34,11 @@
                </font></TextField>
             <Label layoutX="174.0" layoutY="161.0" text="Gender:">
                <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Label>
             <Label layoutX="181.0" layoutY="191.0" text="Role:">
                <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Label>
             <Button fx:id="login_button" layoutX="191.0" layoutY="270.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #00573F;" text="Return to Log In" textFill="WHITE">
                <font>
@@ -45,29 +46,45 @@
                </font></Button>
             <RadioButton fx:id="roleStudent" layoutX="242.0" layoutY="193.0" mnemonicParsing="false" text="student">
                <font>
-                  <Font name="Arial" size="11.0" />
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
             <RadioButton fx:id="genderF" layoutX="314.0" layoutY="163.0" mnemonicParsing="false" text="female">
                <font>
-                  <Font name="Arial" size="11.0" />
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
             <RadioButton fx:id="genderM" layoutX="243.0" layoutY="163.0" mnemonicParsing="false" text="male">
                <font>
-                  <Font name="Arial" size="11.0" />
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
                </font></RadioButton>
             <RadioButton fx:id="roleFacility" layoutX="313.0" layoutY="193.0" mnemonicParsing="false" text="facility">
                <font>
-                  <Font name="Arial" size="11.0" />
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </RadioButton>
             <Button fx:id="signup_button" layoutX="201.0" layoutY="229.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #00573F;" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Button>
-            <Label layoutX="-141.0" layoutY="27.0" text="Set Up Your Account " textFill="WHITE">
+            <Label layoutX="-112.0" layoutY="24.0" prefHeight="64.0" prefWidth="149.0" text="Set Up Your ">
                <font>
-                  <Font name="Diwani Letter" size="21.0" />
+                  <Font name="Arial Black" size="21.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="0.4075829383886256" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
             <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="160.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -83,6 +100,27 @@
                   <Font name="Arial Rounded MT Bold" size="12.0" />
                </font>
             </PasswordField>
+            <Label layoutX="-90.0" layoutY="73.0" text="Account">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.4075829383886256" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
          </children>
       </Pane>
    </children>

@@ -10,18 +10,21 @@
     <left>
         <AnchorPane prefHeight="400.0" prefWidth="159.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="CENTER">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="400.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="179.0" />
-                <Button layoutX="8.0" layoutY="369.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: #ffffff;" text="Return" />
-            <Label layoutX="-2.0" layoutY="4.0" prefHeight="42.0" prefWidth="183.0" text="Show Events">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00573f" height="407.0" layoutX="-3.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="167.0" />
+                <Button layoutX="9.0" layoutY="369.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: #ffffff;" text="Return">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font></Button>
+            <Label layoutX="6.0" prefHeight="42.0" prefWidth="157.0" text="Show Events">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
                </font>
                <textFill>
-                  <LinearGradient endX="0.17061611374407581" endY="1.0">
+                  <LinearGradient endX="0.3696682464454976" endY="1.0">
                      <stops>
                         <Stop>
                            <color>
-                              <Color />
+                              <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
@@ -33,30 +36,39 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button layoutX="95.0" layoutY="369.0" mnemonicParsing="false" onAction="#register" prefHeight="27.0" prefWidth="60.0" style="-fx-background-color: #ffffff;" text="Register" />
-            <Label layoutX="7.0" layoutY="60.0" prefHeight="42.0" prefWidth="166.0" text="Choose Event To" textFill="WHITE">
+            <Button layoutX="85.0" layoutY="369.0" mnemonicParsing="false" onAction="#register" prefHeight="27.0" prefWidth="76.0" style="-fx-background-color: #ffffff;" text="Register">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font></Button>
+            <Label layoutX="9.0" layoutY="39.0" prefHeight="42.0" prefWidth="150.0" text="Choose Event To" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="7.0" layoutY="81.0" prefHeight="42.0" prefWidth="166.0" text="Register" textFill="WHITE">
+            <Label layoutX="33.0" layoutY="73.0" prefHeight="34.0" prefWidth="85.0" text="Register" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtID" layoutX="15.0" layoutY="130.0" promptText="ID" />
-            <TextField fx:id="txtFacility" layoutX="15.0" layoutY="165.0" promptText="Facility" />
-            <TextField fx:id="txtParticipants" layoutX="15.0" layoutY="200.0" promptText="Participants" />
-            <TextField fx:id="txtDate" layoutX="15.0" layoutY="235.0" promptText="date" />
-            <TextField fx:id="txtStart" layoutX="15.0" layoutY="270.0" promptText="Start Time" />
-            <TextField fx:id="txtEnd" layoutX="15.0" layoutY="305.0" promptText="End Time" />
-            <Label layoutX="43.0" layoutY="115.0" text="*DONT CHANGE*" textFill="WHITE" />
-            <Button layoutX="22.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #ffffff;" text="Cancel Event" />
+            <TextField fx:id="txtID" layoutX="10.0" layoutY="132.0" promptText="ID" />
+            <TextField fx:id="txtFacility" layoutX="10.0" layoutY="166.0" promptText="Facility" />
+            <TextField fx:id="txtParticipants" layoutX="10.0" layoutY="199.0" promptText="Participants" />
+            <TextField fx:id="txtDate" layoutX="10.0" layoutY="235.0" promptText="date" />
+            <TextField fx:id="txtStart" layoutX="10.0" layoutY="268.0" promptText="Start Time" />
+            <TextField fx:id="txtEnd" layoutX="10.0" layoutY="302.0" promptText="End Time" />
+            <Label layoutX="34.0" layoutY="107.0" text="*DONT CHANGE*" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            <Button layoutX="30.0" layoutY="334.0" mnemonicParsing="false" onAction="#cancel" prefHeight="22.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Cancel Event">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="14.0" />
+               </font></Button>
             </children>
         </AnchorPane>
     </left>
     <center>
-        <TableView fx:id="eventsTable" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="475.0" BorderPane.alignment="CENTER">
+        <TableView fx:id="eventsTable" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="420.0" BorderPane.alignment="CENTER">
             <columns>
             <TableColumn fx:id="colID" prefWidth="45.0" text="ID" />
                 <TableColumn fx:id="colFacility" prefWidth="105.0" text="Facility" />
