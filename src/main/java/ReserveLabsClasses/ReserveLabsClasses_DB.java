@@ -20,7 +20,7 @@ public class ReserveLabsClasses_DB {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM reservations WHERE reservation = ?");
 
             psCheckUserExists.setString(1, ReservationType);
