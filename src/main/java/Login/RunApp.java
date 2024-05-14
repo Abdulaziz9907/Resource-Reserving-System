@@ -6,10 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -20,8 +18,8 @@ public class RunApp extends Application {
         stage.setTitle("Log in");
         stage.setScene(new Scene( root,600,400));
 
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/rss.png"));
+
+
 
         stage.show();
 
