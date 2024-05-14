@@ -51,6 +51,7 @@
             <TextField fx:id="txtStart" layoutX="15.0" layoutY="270.0" promptText="Start Time" />
             <TextField fx:id="txtEnd" layoutX="15.0" layoutY="305.0" promptText="End Time" />
             <Label layoutX="43.0" layoutY="115.0" text="*DONT CHANGE*" textFill="WHITE" />
+            <Button layoutX="22.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #ffffff;" text="Cancel Event" />
             </children>
         </AnchorPane>
     </left>

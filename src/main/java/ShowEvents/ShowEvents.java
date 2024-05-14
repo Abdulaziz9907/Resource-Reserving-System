@@ -88,6 +88,21 @@ public class ShowEvents implements Initializable {
             alert.show();
         }
     }
+    public void cancel(){
+        if(!DB.getRole().equals("admin")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Only Admin is allowed to cancel");
+            alert.show();
+            return;
+        }
+        if(!txtID.getText().isEmpty() &&!txtFacility.getText().isEmpty() &&!txtParticipants.getText().isEmpty() &&!txtDate.getText().isEmpty() &&!txtStart.getText().isEmpty() &&!txtEnd.getText().isEmpty())
+            ShowEvents_DB.cancelEvent(txtID.getText(),txtFacility.getText(),txtParticipants.getText(),txtDate.getText(),txtStart.getText(),txtEnd.getText());
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Fill all information");
+            alert.show();
+        }
+    }
 
     public void handle(ActionEvent event){
         Parent root = null;

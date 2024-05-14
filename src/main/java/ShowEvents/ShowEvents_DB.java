@@ -17,6 +17,22 @@ public class ShowEvents_DB {
             throw new RuntimeException(e);
         }
     }
+
+    public static void cancelEvent(String ID, String facility, String participants, String date, String startTime, String endTime){
+        Connection connection;
+        String sql;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            if (DB.getGender().equals("male"))
+                sql = "DELETE FROM male_events WHERE idmale_events ="+ID;
+            else sql = "DELETE FROM female_events WHERE idfemale_events ="+ID;
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public static void registerUser(String ID, String facility, String participants, String date, String startTime, String endTime){
         String sql;
         if (DB.getGender().equals("male"))
@@ -65,7 +81,7 @@ public class ShowEvents_DB {
                 ps.executeUpdate();
 
                 if (DB.getGender().equals("male"))
-                    sql = "INSERT INTO male_events_reservations (username, event_id)\" + \"VALUES (?, ?)";
+                    sql = "INSERT INTO male_events_reservations (username, event_id)" + "VALUES (?, ?)";
                 else sql = "INSERT INTO female_events_reservations (username, event_id)" + "VALUES (?, ?)";
                 ps = connection.prepareStatement(sql);
                 ps.setString(1, DB.getUsername());
