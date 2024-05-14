@@ -1,8 +1,11 @@
 package ViewReservations;
 
+import Login.DB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class ViewReservations_DB {
@@ -33,10 +36,20 @@ public class ViewReservations_DB {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM reservations WHERE idreservations ="+ID);
             statement.executeUpdate();
 
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Reservation Deleted Successfully");
+            alert.show();
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        try {
+            new ProcessBuilder("\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\"",
+                    "/m", DB.getUsername()+"@kfupm.edu.sa",
+                    "/a","C:\\Users\\zyadm\\IdeaProjects\\untitled13\\src\\mail").start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
