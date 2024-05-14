@@ -1,4 +1,5 @@
 package Login;
+import MainPanel.MainPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,18 +21,41 @@ public class DB {
 
         Parent root = null;
 
-        try {
-            root = FXMLLoader.load(DB.class.getResource(fxmlFile));
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        if(username!= null && gender!= null && role != null) {
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource(fxmlFile));
+                root = fxmlLoader.load();
+
+                MainPanel mainPanel = fxmlLoader.getController();
+                mainPanel.userInfo(username);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+            else{
+                try {
+                    root = FXMLLoader.load(DB.class.getResource(fxmlFile));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
-    }
+
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+
+        }
+
+
+
+
 
     public static void signUp(ActionEvent event, String username, String password, String gender, String role) {
 
@@ -184,6 +208,7 @@ public class DB {
                 System.out.println(getUsername());
                 System.out.println(getRole());
 
+
             }
 
         }
@@ -201,7 +226,6 @@ public class DB {
     public static String getRole() {
         return role_DB;
     }
-
 
 
 

@@ -6,9 +6,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -27,6 +29,9 @@ public class ctrl implements Initializable {
     private TextField pass_tf;
 
     @FXML
+    private Text promote_text;
+
+    @FXML
     private StackPane stackPane;
     @FXML
     private ImageView arrowImageView;
@@ -40,6 +45,7 @@ public class ctrl implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         login_button.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             public void handle(ActionEvent event) {
                 DB.logIn(event, username_tf.getText(), pass_tf.getText());
@@ -105,7 +111,18 @@ public class ctrl implements Initializable {
 
         });
 
+
+        promote_text.setTranslateX(-200);
+
+        TranslateTransition transition3 = new TranslateTransition(Duration.seconds(1), promote_text);
+        transition3.setToX(0);
+
+        transition3.play();
+
     }
+
+
+
 
 
 }

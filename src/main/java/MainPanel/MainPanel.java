@@ -1,4 +1,5 @@
 package MainPanel;
+import Login.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +30,11 @@ public class MainPanel implements Initializable {
     private Button ReserveFacilities_Button;
     @FXML
     private Button ShowEvents_button;
+
+    @FXML
+    private Label name_text;
+
+
 
     Parent root = null;
 
@@ -144,7 +152,17 @@ public class MainPanel implements Initializable {
                 }
             }
 
+
         });
+
+
+    }
+
+
+
+    public void userInfo(String username){
+
+        name_text.setText(("Welcome "+username));
 
     }
 
