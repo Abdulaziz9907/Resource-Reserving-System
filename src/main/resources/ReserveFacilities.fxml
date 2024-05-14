@@ -51,7 +51,7 @@
                   <Label layoutX="31.0" layoutY="139.0" text="Facility Location" />
                   <TextField fx:id="Facility_Location" layoutX="129.0" layoutY="135.0" prefHeight="25.0" prefWidth="148.0" promptText="Location" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                   <Label layoutX="40.0" layoutY="177.0" text="Time Start at" />
-                  <TextField fx:id="Facility_TimeS" layoutX="129.0" layoutY="174.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <TextField fx:id="Facility_TimeS" layoutX="129.0" layoutY="174.0" promptText="XX:XX (24 hours Format)" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                   <Button fx:id="Facility_Return" layoutX="34.0" layoutY="364.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -64,7 +64,7 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <TextField fx:id="Facility_TimeE" layoutX="129.0" layoutY="218.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <TextField fx:id="Facility_TimeE" layoutX="129.0" layoutY="218.0" promptText="XX:XX (24 hours Format)" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                   <Label layoutX="40.0" layoutY="223.0" text="Time Ends at" />
                   <TextArea fx:id="Details_M" layoutX="123.0" layoutY="255.0" prefHeight="137.0" prefWidth="167.0" promptText="Why you want to reserve this facility?" />
                   <Label layoutX="7.0" layoutY="269.0" text="Reason of Reserving" />
