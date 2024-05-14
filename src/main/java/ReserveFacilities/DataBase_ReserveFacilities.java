@@ -11,7 +11,7 @@ import static OpenEvent.events_DB.setIsBooked;
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTimeS,String reservingTimeE, String gender ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTimeS,String reservingTimeE, String gender, String details ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -44,13 +44,14 @@ public class DataBase_ReserveFacilities {
                     }
                 }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTimeStart,ReservingTimeEnd,Gender) VALUES (?,?,?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTimeStart,ReservingTimeEnd,Gender,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
                 psInsert.setString(1, facilityName);
                 psInsert.setString(2, String.valueOf(ReservationDate));
                 psInsert.setString(3, facilityLocation);
                 psInsert.setString(4, reservingTimeS);
                 psInsert.setString(5, reservingTimeE);
                 psInsert.setString(6, gender);
+                psInsert.setString(7, details);
 
                 psInsert.executeUpdate();
 
