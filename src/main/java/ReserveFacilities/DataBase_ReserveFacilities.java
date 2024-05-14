@@ -4,12 +4,14 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 import java.time.LocalDate;
 import static Login.DB.changeScene;
+import static OpenEvent.events_DB.giveAlert;
+import static OpenEvent.events_DB.setIsBooked;
 
 
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTime, String gender ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTimeS,String reservingTimeE, String gender ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -24,18 +26,31 @@ public class DataBase_ReserveFacilities {
             resultSet = psCheckUserExists.executeQuery();
 
 
-            if (resultSet.isBeforeFirst()) {
-                System.out.println("facility is reserved, choose another faculty");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("facility is reserved, choose another faculty");
-                alert.show();
+            if(resultSet.isBeforeFirst()){
+                while(resultSet.next()) {
+
+                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
+                        if(resultSet.getString("ReservatingTimeStart").equals(reservingTimeS)){
+                            giveAlert();
+                            return;
+                        }
+                        if((Integer.parseInt(reservingTimeS.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservatingTimeEnd").substring(0,2)) && Integer.parseInt(reservingTimeS.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservatingTimeStart").substring(0,2)))
+                                || (Integer.parseInt(reservingTimeE.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservatingTimeEnd").substring(0,2)) && Integer.parseInt(reservingTimeE.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservatingTimeStart").substring(0,2)))){
+                            giveAlert();
+                            setIsBooked(true);
+                            return;
+                        }
+
+                    }
+                }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTime,Gender) VALUES (?,?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTimeStart,ReservingTimeEnd,Gender) VALUES (?,?,?,?,?,?) ");
                 psInsert.setString(1, facilityName);
                 psInsert.setString(2, String.valueOf(ReservationDate));
                 psInsert.setString(3, facilityLocation);
-                psInsert.setString(4, reservingTime);
-                psInsert.setString(5, gender);
+                psInsert.setString(4, reservingTimeS);
+                psInsert.setString(5, reservingTimeE);
+                psInsert.setString(6, gender);
 
                 psInsert.executeUpdate();
 

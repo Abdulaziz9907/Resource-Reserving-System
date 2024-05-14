@@ -33,24 +33,18 @@ public class Actions implements Initializable {
     @FXML
     private TextField Facility_Location;
     @FXML
-    private TextField Facility_Time;
+    private TextField Facility_TimeS;
     @FXML
-    private RadioButton fMale_option;
-    @FXML
-    private RadioButton fFemale_option;
+    private TextField Facility_TimeE;
     @FXML
     private Label confirmation_M;
+    private String gender = DB.getGender();
     Parent root = null;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
 
-        ToggleGroup toggleGroup = new ToggleGroup();
-        fMale_option.setToggleGroup(toggleGroup);
-        fFemale_option.setToggleGroup(toggleGroup);
-
-        fMale_option.setSelected(true);
 
 
         Facility_Apply.setOnAction(new EventHandler<ActionEvent>() {
@@ -59,12 +53,11 @@ public class Actions implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
-                String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
                 LocalDate date = Facility_Date.getValue();
 
-                if (!Facility_Name.getText().trim().isEmpty()  && !Facility_Location.getText().trim().isEmpty() && !Facility_Time.getText().trim().isEmpty()) {
+                if (!Facility_Name.getText().trim().isEmpty()  && !Facility_Location.getText().trim().isEmpty() && !Facility_TimeS.getText().trim().isEmpty() && !Facility_TimeS.getText().trim().isEmpty() && !Facility_TimeE.getText().trim().isEmpty()) {
                     java.sql.Date sqlDate = Date.valueOf(date);
-                    DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), sqlDate, Facility_Location.getText(), Facility_Time.getText(), toggleName);
+                    DataBase_ReserveFacilities.FaciltiesReservation(event, Facility_Name.getText(), sqlDate, Facility_Location.getText(), Facility_TimeS.getText(),Facility_TimeE.getText(), gender);
                     confirmation_M.setText("The facility has been assigned successfully");
 
                 } else {
