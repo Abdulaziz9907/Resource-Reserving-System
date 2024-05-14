@@ -32,12 +32,22 @@ public class ReserveLabsClasses_DB {
 
 
             if(resultSet.isBeforeFirst()){
+                while(resultSet.next()) {
 
-                System.out.println("this "+ReservationType+"is reserved");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("this "+ReservationType+" is reserved");
-                alert.show();
+                    if(resultSet.getString("ReservationDate").equals(ReservationDate)){
+                        if(resultSet.getString("ReservationTimeStart").equals(ReservationTime_S)){
+                            giveAlert();
+                            return;
+                        }
+                        if((Integer.parseInt(ReservationTime_S.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_S.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))
+                                || (Integer.parseInt(ReservationTime_E.substring(0,2)) < Integer.parseInt(resultSet.getString("ReservationTimeEnd").substring(0,2)) && Integer.parseInt(ReservationTime_E.substring(0,2)) > Integer.parseInt(resultSet.getString("ReservationTimeStart").substring(0,2)))){
+                            giveAlert();
+                            setIsBooked(true);
+                            return;
+                        }
 
+                    }
+                }
             } else {
                 setIsBooked(true);
                 psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate,gender, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?,?) ");

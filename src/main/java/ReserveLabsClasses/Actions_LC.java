@@ -38,10 +38,6 @@ public class Actions_LC implements Initializable {
     @FXML
     private TextField lC_Time_End;
     @FXML
-    private RadioButton fMale_lC;
-    @FXML
-    private RadioButton fFemale_lC;
-    @FXML
     private TextArea Details_lC;
     @FXML
     private Button Apply_lC;
@@ -55,13 +51,6 @@ public class Actions_LC implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //ToggleGroup toggleGroup = new ToggleGroup();
-        //fMale_lC.setToggleGroup(toggleGroup);
-        //fFemale_lC.setToggleGroup(toggleGroup);
-        //fMale_lC.setSelected(true);
-
-
-        //String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
 
         // for the choice box
         ObservableList<String> choices = FXCollections.observableArrayList("Lab", "Class");
@@ -76,7 +65,11 @@ public class Actions_LC implements Initializable {
                 if (Choice_CL.getValue() != null && !lC_Time_Start.getText().trim().isEmpty() && !lC_Time_End.getText().trim().isEmpty() && !roomNum.getText().trim().isEmpty() && !bldgNum.getText().trim().isEmpty() ) {
                     java.sql.Date sqlDate = Date.valueOf(date);
                     String selectedChoice = (String) Choice_CL.getValue();
+<<<<<<< Updated upstream
                     ReserveLabsClasses_DB.Reserve_CL(event, Choice_CL.getValue(),roomNum.getText(),bldgNum.getText(), sqlDate,gender, lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
+=======
+                    ReserveLabsClasses_DB.Reserve_CL(event, selectedChoice,roomNum.getText(),bldgNum.getText(), sqlDate, gender,lC_Time_Start.getText(),lC_Time_End.getText(), Details_lC.getText());
+>>>>>>> Stashed changes
 
                     confirmationM.setText("The facility has been assigned successfully");
                 } else {
