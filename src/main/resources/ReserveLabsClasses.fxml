@@ -15,21 +15,21 @@
          <left>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="411.0" fitWidth="211.0" layoutX="-8.0" pickOnBounds="true">
+                  <ImageView fitHeight="411.0" fitWidth="225.0" layoutX="-8.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/green_background.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="48.0" layoutY="14.0" text="Reserve">
+                  <Label layoutX="62.0" layoutY="14.0" text="Reserve">
                      <font>
-                        <Font name="System Bold" size="27.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                      <textFill>
-                        <LinearGradient endX="0.3886255924170616" endY="1.0" startY="1.0">
+                        <LinearGradient endX="0.3933649289099526" endY="1.0" startY="1.0">
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.6973684430122375" green="0.6876827478408813" blue="0.6876827478408813" />
+                                    <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
@@ -41,7 +41,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label layoutX="24.0" layoutY="45.0" text="Labs and Classes">
+                  <Label layoutX="12.0" layoutY="45.0" text="Labs and Classes">
                      <textFill>
                         <LinearGradient endX="0.3886255924170616" endY="1.0" startY="1.0">
                            <stops>
@@ -59,7 +59,7 @@
                         </LinearGradient>
                      </textFill>
                      <font>
-                        <Font name="System Bold" size="19.0" />
+                        <Font name="Arial Black" size="21.0" />
                      </font>
                   </Label>
                </children>
@@ -68,8 +68,11 @@
          <center>
             <AnchorPane fx:id="" prefHeight="308.0" prefWidth="284.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="25.0" layoutY="45.0" text="Type of Reservation" />
-                  <ChoiceBox fx:id="Choice_CL" layoutX="141.0" layoutY="42.0" prefWidth="150.0" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;">
+                  <Label layoutX="27.0" layoutY="20.0" text="Type of Reservation">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <ChoiceBox fx:id="Choice_CL" layoutX="181.0" layoutY="14.0" prefWidth="150.0" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="Lab" />
@@ -78,31 +81,52 @@
                      </items>
                   </ChoiceBox>
 
-                  <Label layoutX="25.0" layoutY="159.0" text="Date of Reservation" />
-                  <Label layoutX="40.0" layoutY="193.0" text="Time Start At:" />
-                  <TextField fx:id="lC_Time_Start" layoutX="142.0" layoutY="188.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <DatePicker fx:id="lC_Date" layoutX="141.0" layoutY="152.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="44.0" layoutY="228.0" text="Time End At:" />
-                  <TextArea fx:id="Details_lC" layoutX="139.0" layoutY="259.0" prefHeight="136.0" prefWidth="164.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;" />
-                  <Label layoutX="10.0" layoutY="273.0" text="Reason of Reservation" />
-                  <Button fx:id="Apply_lC" layoutX="324.0" layoutY="359.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
+                  <Label layoutX="28.0" layoutY="126.0" text="Date of Reservation">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="40.0" layoutY="162.0" text="Time Start At:">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="lC_Time_Start" layoutX="182.0" layoutY="156.0" promptText="XX:XX (24 hours Format)" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <DatePicker fx:id="lC_Date" layoutX="181.0" layoutY="120.0" prefHeight="25.0" prefWidth="150.0" promptText="MM/DD/YY" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="44.0" layoutY="197.0" text="Time End At:">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextArea fx:id="Details_lC" layoutX="181.0" layoutY="236.0" prefHeight="136.0" prefWidth="168.0" promptText="Why you want to reserve this lab/class?" style="-fx-background-color: #00573F;">
+                     <font>
+                        <Font size="13.0" />
+                     </font></TextArea>
+                  <Label layoutX="19.0" layoutY="274.0" prefHeight="30.0" prefWidth="154.0" text="Reason of Reservation">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <Button fx:id="Apply_lC" layoutX="313.0" layoutY="378.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" style="-fx-background-color: #00573F;" text="Apply" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="Return_lC" layoutX="40.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
+                  <Button fx:id="Return_lC" layoutX="52.0" layoutY="378.0" mnemonicParsing="false" style="-fx-background-color: #00573F;" text="Return" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
                   <Label fx:id="confirmationM" layoutX="71.0" layoutY="9.0" prefHeight="19.0" prefWidth="277.0" textFill="#41d307">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="39.0" layoutY="126.0" prefHeight="17.0" prefWidth="87.0" text="Room Number" />
-                  <TextField fx:id="roomNum" layoutX="142.0" layoutY="117.0" promptText="Room No." style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <Label layoutX="33.0" layoutY="86.0" prefHeight="17.0" prefWidth="93.0" text="Building Number" />
-                  <TextField fx:id="bldgNum" layoutX="142.0" layoutY="80.0" promptText="Bldg No." style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
-                  <TextField fx:id="lC_Time_End" layoutX="141.0" layoutY="225.0" promptText="XX:XX" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="36.0" layoutY="92.0" prefHeight="17.0" prefWidth="102.0" text="Room Number">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="roomNum" layoutX="182.0" layoutY="86.0" promptText="Room No." style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <Label layoutX="29.0" layoutY="57.0" prefHeight="17.0" prefWidth="116.0" text="Building Number">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="bldgNum" layoutX="182.0" layoutY="51.0" promptText="Bldg No." style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
+                  <TextField fx:id="lC_Time_End" layoutX="182.0" layoutY="192.0" promptText="XX:XX (24 hours Format)" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                </children></AnchorPane>
          </center>
       </BorderPane>
