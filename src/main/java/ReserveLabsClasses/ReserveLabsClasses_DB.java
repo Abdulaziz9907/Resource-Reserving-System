@@ -44,14 +44,15 @@ public class ReserveLabsClasses_DB {
                     }
                 }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO reservelabsclasses (ReservationType, BuildingNumber, RoomNumber,ReservationDate,gender, ReservationTimeStart, ReservationTimeEnd,ExtraDetails) VALUES (?,?,?,?,?,?,?,?) ");
                 psInsert.setString(1, ReservationType);
                 psInsert.setString(2, BuildingNumber);
                 psInsert.setString(3, RoomNumber);
                 psInsert.setString(4, String.valueOf(ReservationDate));
-                psInsert.setString(5, ReservationTime_S);
-                psInsert.setString(6, ReservationTime_E);
-                psInsert.setString(7, ExtraDetails);
+                psInsert.setString(5, gender);
+                psInsert.setString(6, ReservationTime_S);
+                psInsert.setString(7, ReservationTime_E);
+                psInsert.setString(8, ExtraDetails);
 
                 psInsert.executeUpdate();
 
