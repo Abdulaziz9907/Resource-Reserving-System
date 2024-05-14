@@ -11,7 +11,7 @@ import static OpenEvent.events_DB.setIsBooked;
 public class DataBase_ReserveFacilities {
 
 
-    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String facilityLocation, String reservingTimeS,String reservingTimeE, String gender, String details ) {
+    public static void FaciltiesReservation(ActionEvent event, String facilityName,java.sql.Date ReservationDate, String reservingTimeS,String reservingTimeE, String gender, String details ) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -20,8 +20,8 @@ public class DataBase_ReserveFacilities {
         PreparedStatement psCheckUserExists = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/resource reserving system", "root", "12345678");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservefacilities WHERE FacilityName = ?");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM reservations WHERE reservation = ?");
             psCheckUserExists.setString(1, facilityName);
             resultSet = psCheckUserExists.executeQuery();
 
@@ -44,14 +44,13 @@ public class DataBase_ReserveFacilities {
                     }
                 }
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO reservefacilities (FacilityName,ReservationDate, FacilityLocation, ReservingTimeStart,ReservingTimeEnd,Gender,ExtraDetails) VALUES (?,?,?,?,?,?,?) ");
+                psInsert = connection.prepareStatement("INSERT INTO reservations (reservation, date, start_time, end_time, gender, details) VALUES (?,?,?,?,?,?) ");
                 psInsert.setString(1, facilityName);
                 psInsert.setString(2, String.valueOf(ReservationDate));
-                psInsert.setString(3, facilityLocation);
-                psInsert.setString(4, reservingTimeS);
-                psInsert.setString(5, reservingTimeE);
-                psInsert.setString(6, gender);
-                psInsert.setString(7, details);
+                psInsert.setString(3, reservingTimeS);
+                psInsert.setString(4, reservingTimeE);
+                psInsert.setString(5, gender);
+                psInsert.setString(6, details);
 
                 psInsert.executeUpdate();
 

@@ -12,7 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.*;
 
 public class ViewReservations_DB {
@@ -23,7 +26,7 @@ public class ViewReservations_DB {
 
         Connection connection;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM reservations");
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
@@ -56,15 +59,16 @@ public class ViewReservations_DB {
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+
+            String subject = "Reservation_Canceled";
+            String body = "Dear:"+DB.getUsername()+"_Sorry,_your_reservation_is_now_canceled";
+            URI msg = new URI("mailto:"+DB.getUsername()+"@KFUPM.edu.sa?subject="+subject+"&body="+body);
+            Desktop.getDesktop().mail(msg);
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
-        try {
-            new ProcessBuilder("\"C:\\Program Files\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE\"",
-                    "/m", DB.getUsername()+"@kfupm.edu.sa",
-                    "/a","C:\\Users\\zyadm\\IdeaProjects\\untitled13\\src\\mail").start();
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
+
     }
 }

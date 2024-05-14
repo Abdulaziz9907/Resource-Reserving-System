@@ -12,14 +12,17 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.*;
+import java.awt.Desktop;
 
 public class ShowEvents_DB {
     public static Connection connect(){
 
 
         try {
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
+            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "123123");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -49,6 +52,9 @@ public class ShowEvents_DB {
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+
+
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -123,10 +129,18 @@ public class ShowEvents_DB {
                 stage.setScene(new Scene(root));
                 stage.show();
 
+                String subject = "Reservation_Canceled";
+                String body = "Dear:"+DB.getUsername()+"_Sorry,_your_event_is_now_canceled";
+                URI msg = new URI("mailto:"+DB.getUsername()+"@KFUPM.edu.sa?subject="+subject+"&body="+body);
+                Desktop.getDesktop().mail(msg);
 
 
 
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
