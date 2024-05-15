@@ -20,15 +20,6 @@ import java.awt.Desktop;
 
 public class ShowEvents_DB {
 
-    private static String gender;
-
-    public void info(String gender){
-
-        FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource("MainPanel.fxml"));
-        MainPanel mainPanel=fxmlLoader.getController();
-        mainPanel.info(gender);
-
-    }
     public static Connection connect(){
 
 
@@ -44,7 +35,7 @@ public class ShowEvents_DB {
         String sql;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/facilities", "root", "12345678");
-            if (String.valueOf(gender).equals("male"))
+            if (String.valueOf(DB.getGender()).equals("male"))
                 sql = "DELETE FROM male_events WHERE idmale_events ="+ID;
             else sql = "DELETE FROM female_events WHERE idfemale_events ="+ID;
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -81,7 +72,7 @@ public class ShowEvents_DB {
     }
     public static void registerUser(ActionEvent event, String ID, String facility, String participants, String date, String startTime, String endTime){
         String sql;
-        if (String.valueOf(gender).equals("male"))
+        if (String.valueOf(DB.getGender()).equals("male"))
             sql = "SELECT event_id FROM male_events_reservations WHERE username = ?";
         else sql = "SELECT event_id FROM female_events_reservations WHERE username = ?";
 
@@ -120,13 +111,13 @@ public class ShowEvents_DB {
                 int incremented = Integer.parseInt(parts[0]) + 1;
                 String updated = String.valueOf(incremented) + "/" + parts[1];
 
-                if (String.valueOf(gender).equals("male"))
+                if (String.valueOf(DB.getGender()).equals("male"))
                     sql = "UPDATE `facilities`.`male_events` SET `participants_number`='"+updated+"' WHERE `idmale_events`='"+ID+"';";
                 else sql = "UPDATE `facilities`.`female_events` SET `participants_number`='"+updated+"' WHERE `idfemale_events`='"+ID+"';";
                 ps = connection.prepareStatement(sql);
                 ps.executeUpdate();
 
-                if (String.valueOf(gender).equals("male"))
+                if (String.valueOf(DB.getGender()).equals("male"))
                     sql = "INSERT INTO male_events_reservations (username, event_id)" + "VALUES (?, ?)";
                 else sql = "INSERT INTO female_events_reservations (username, event_id)" + "VALUES (?, ?)";
                 ps = connection.prepareStatement(sql);
@@ -157,14 +148,14 @@ public class ShowEvents_DB {
     public static ObservableList<Event> getEvents(){
         String sql;
         ObservableList<Event> list = FXCollections.observableArrayList();
-        if (String.valueOf(gender).equals("male"))
+        if (String.valueOf(DB.getGender()).equals("male"))
             sql = "SELECT * FROM male_events";
         else sql = "SELECT * FROM female_events";
         Connection connection = connect();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            if(String.valueOf(gender).equals("male")){
+            if(String.valueOf(DB.getGender()).equals("male")){
                 while(rs.next()){
                     list.add(new Event(rs.getInt("idmale_events"),rs.getString("facility"),rs.getString("participants_number"),rs.getString("date"),rs.getString("start_time"),rs.getString("end_time")));
                 }

@@ -63,7 +63,6 @@ public class Actions implements Initializable {
                     String details = Facility_Name.getText()+"-"+Facility_Name.getText()+"-"+Facility_Location.getText();
 
                     DataBase_ReserveFacilities.FaciltiesReservation(event,details, sqlDate, Facility_TimeS.getText(),Facility_TimeE.getText(), gender,Details_M.getText());
-                    confirmation_M.setText("The facility has been assigned successfully");
 
                 } else {
                     System.out.println("fill all information");

@@ -55,10 +55,6 @@
                      <font>
                         <Font name="Arial Rounded MT Bold" size="14.0" />
                      </font></Button>
-                  <Label fx:id="confirmation_M" layoutX="62.0" layoutY="11.0" prefHeight="19.0" prefWidth="265.0" textFill="#04dd00">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font></Label>
                   <TextField fx:id="Facility_TimeE" layoutX="159.0" layoutY="183.0" promptText="XX:XX (24 hours Format)" style="-fx-border-color: #00573F; -fx-text-fill: #00573F; -fx-background-color: white; -fx-border-width: 0px 0px 2.5px 0px;" />
                   <Label layoutX="30.0" layoutY="189.0" text="Time Ends at">
                      <font>

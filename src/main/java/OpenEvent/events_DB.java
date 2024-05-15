@@ -20,8 +20,8 @@ public class events_DB {
 
 
 
-            if (String.valueOf(DB.getGender()).equals("male"))
-                sql = "SELECT date, start_time, end_time FROM male_events WHERE facility = ?";
+            if (String.valueOf(DB.getGender()).equals("male")){
+                sql = "SELECT date, start_time, end_time FROM male_events WHERE facility = ?";}
             else sql = "SELECT date, start_time, end_time FROM female_events WHERE facility = ?";
 
             PreparedStatement statement = connection.prepareStatement(sql);

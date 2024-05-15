@@ -29,9 +29,6 @@ public class DB {
                 FXMLLoader fxmlLoader = new FXMLLoader(DB.class.getResource(fxmlFile));
                 root = fxmlLoader.load();
 
-                MainPanel mainPanel=fxmlLoader.getController();
-                mainPanel.info(gender);
-
 
 
             } catch (IOException e) {
@@ -87,7 +84,13 @@ public class DB {
                 psInsert.setString(4, role);
                 psInsert.executeUpdate();
 
-                changeScene(event, "/mainPanel.fxml", "Main Panel", username, gender, role);
+                changeScene(event, "/MainLogin.fxml", "Main Panel", username, gender, role);
+                System.out.println("Account created");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Account created");
+                alert.setHeaderText(null);
+                alert.setContentText("Your account is created successfully!");
+                alert.showAndWait();
 
 
             }

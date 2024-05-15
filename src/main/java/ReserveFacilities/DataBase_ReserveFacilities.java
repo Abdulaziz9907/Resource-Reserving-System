@@ -55,6 +55,11 @@ public class DataBase_ReserveFacilities {
                 psInsert.executeUpdate();
 
                 System.out.println("reservation complete");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Reservation Complete");
+                alert.setHeaderText(null);
+                alert.setContentText("Your reservation is complete!");
+                alert.showAndWait();
 
             }
 

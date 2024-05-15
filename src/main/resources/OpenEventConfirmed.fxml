@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
@@ -13,26 +12,10 @@
     <ImageView fitHeight="142.0" fitWidth="46.0" layoutX="413.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@images/img_1.png" />
     </ImageView>
-   <Label layoutX="197.0" layoutY="154.0" prefHeight="70.0" prefWidth="216.0" text="Event Created!">
+   <Label layoutX="197.0" layoutY="154.0" prefHeight="70.0" prefWidth="216.0" text="Event Created!" textFill="WHITE">
       <font>
          <Font name="Arial Black" size="26.0" />
       </font>
-      <textFill>
-         <LinearGradient endX="0.4123222748815166" endY="1.0">
-            <stops>
-               <Stop>
-                  <color>
-                     <Color red="0.6980392336845398" green="0.686274528503418" blue="0.686274528503418" />
-                  </color>
-               </Stop>
-               <Stop offset="1.0">
-                  <color>
-                     <Color red="1.0" green="1.0" blue="1.0" />
-                  </color>
-               </Stop>
-            </stops>
-         </LinearGradient>
-      </textFill>
    </Label>
    <Button layoutX="162.0" layoutY="315.0" mnemonicParsing="false" onAction="#returnScene" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #ffffff;" text="Return">
       <font>
